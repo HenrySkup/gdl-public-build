@@ -1,0 +1,58 @@
+html,
+body {
+  padding : 0;
+  margin  : 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing  : border-box;
+}
+
+body {
+  display         : flex;
+  flex-direction  : column;
+  min-height      : 100vh;
+}
+
+main {
+  flex  : 1 0 auto;
+}
+
+figure {
+  margin : 0;
+}
+
+/* Top-Level element styling */
+
+main > * {
+  /* margin    : auto;
+  max-width : min(600px, 50ch); */
+}
+
+main > figure {
+  margin-inline : auto;
+  margin-block  : var(--space-lg);
+  max-width     : calc(100vw - 2 * var(--space-sm) );
+}
+
+main > section {
+  max-width : 100vw;
+}
+
+main > :is(callout-section, deck-section, gallery-section)  {
+  max-width : 100vw;
+}
+
+main > :is( p, h1, h2, h3, h4, h5, h6, section, hr ) {
+  max-width       : var(--content-lg);
+  margin-inline   : auto;
+  padding-inline  : var(--space-sm);
+}
+
+main > hr {
+  margin-inline : auto;
+  max-width     : 90vw;
+}
+

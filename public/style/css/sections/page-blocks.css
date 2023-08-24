@@ -1,0 +1,25 @@
+/* PAGE-BLOCKS RELATED
+ * 
+ * Set variables, Edit Typography 
+ * ( Layout things should happen in components )
+ *
+ */
+
+:is( card-card, tag-tag ) {
+  &[size="sx"] { --size : var(--block-xs) }
+  &[size="sm"] { --size : var(--block-sm) }
+  &[size="md"] { --size : var(--block-md) }
+  &[size="lg"] { --size : var(--block-lg) }
+  &[size="xl"] { --size : var(--block-xl) }
+  &[size="fw"] { --size : var(--block-fw) }
+}
+
+:is( card-card, tag-tag )::part( title ) {
+  color       : var(--muted-color);
+  font-weight : bold;
+}
+
+:is( card-card, tag-tag )::part( content ) {
+  color : var(--primary-color);
+}
+

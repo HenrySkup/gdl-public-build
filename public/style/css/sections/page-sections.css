@@ -1,0 +1,77 @@
+/* PAGE-SECTION RELATED
+ * 
+ * Set variables, Edit Typography 
+ * ( Layout things should happen in components )
+ *
+ */
+
+:is(  page-section, 
+      callout-section, 
+      deck-section, 
+      gallery-section,
+      site-footer 
+) {
+  --header-width    : var(--content-lg);
+  --content-width   : var(--content-lg);
+}
+
+:is(  page-section, 
+      deck-section, 
+      gallery-section,
+      site-footer 
+) {
+
+  &[size="lg"] {
+    --header-width    : var(--content-lg);
+    --content-width   : var(--content-lg);
+  }
+
+  &[size="xl"] {
+    --header-width    : var(--content-lg);
+    --content-width   : var(--content-xl);
+  }
+
+  &[size="fw"] {
+    --header-width    : var(--content-lg);
+    --content-width   : var(--context-fw);
+  }
+
+}
+
+:is(  page-section, 
+      callout-section, 
+      deck-section, 
+      gallery-section )::part(header),
+.page-section__header {
+  
+}
+
+:is(  page-section,
+      callout-section, 
+      deck-section, 
+      gallery-section )::part(title),
+.page-section__title  {
+  color           : var(--muted-color);
+  font-size       : var(--font-size-lg);
+  font-weight     : 600;
+  line-height     : 0.9em;
+  text-transform  : uppercase;
+}
+
+:is(  page-section, 
+      callout-section, 
+      deck-section, 
+      gallery-section )::part(introduction),
+.page-section__introduction {
+  color         : var(--secondary-color);
+  font-size     : var(--font-size-lg);
+  font-weight   : 200;
+  line-height   : 1.25em;
+}
+
+:is(  page-section, 
+      deck-section, 
+      gallery-section )::part(content),
+.page-section__content {
+  color         : var(--primary-color);
+}

@@ -1,0 +1,95 @@
+html {
+  font-size : var(--ONE-REM);
+  color     : var(--primary-color);
+}
+
+body {
+  font-family : var(--font-text);
+  line-height : 1.5;
+  font-size   : var(--font-size-md);
+}
+
+
+p {
+  margin-block: 1em;
+}
+
+blockquote { 
+  margin-block  : 3em;
+  font-size     : 1.2em;
+  font-weight   : lighter;
+  font-style    : italic;
+  color         : var(--secondary-color);
+}
+
+hr {
+  margin-block: 5em;
+}
+
+/* Headings */
+h1 {
+  font-size   : var(--font-size-sm);
+  font-weight : 600;
+}
+h2 {
+  font-size : var(--font-size-lg);
+  text-transform: uppercase;
+}
+h3 {
+  font-size : var(--font-size-lg);
+}
+h4 {
+  font-size : var(--font-size-md);
+}
+h5 {
+  font-size : var(--font-size-md);
+}
+h6 {
+  font-size       : var(--font-size-md);
+  text-decoration : underline;
+}
+:is(h1, h2, h3, h4, h4, h5, h6) {
+  margin-block  : 1em;
+}
+
+/* Links */
+
+a {
+  color           : var(--primary-color);
+  text-decoration : none;
+}
+
+a:hover {
+  text-decoration : underline;
+}
+
+
+/* Images */
+
+img {
+  max-width : 100%;
+  display   : block;
+  
+}
+
+.xs {
+  grid-column : span 1;
+  grid-row    : span 1;
+}
+.sm {
+  grid-column : span 2;
+  grid-row    : span 2;
+}
+.md {
+  grid-column : span 3;
+  grid-row    : span 3;
+}
+.lg {
+  grid-column : span 4;
+  grid-row    : span 4;
+}
+.xl {
+  grid-column : span 5;
+  grid-row    : span 5;
+}
+

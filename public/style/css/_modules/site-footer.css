@@ -1,0 +1,58 @@
+.site-footer {
+  /* Needed for page layout */
+  flex-shrink       : 0;
+
+  display           : flex;
+  gap               : var(--space-md);
+  flex-wrap         : wrap;
+  justify-content   : space-between;
+  align-items       : flex-start;
+
+  padding           : min(5vw, var(--space-xl));
+  background-color  : var(--background-color);
+  color             : var(--primary-color); 
+  accent-color      : var(--accent-color);
+
+  & nav {
+    min-width       : var(--content-sm);
+    list-style      : none;
+    text-transform  : uppercase;
+    font-weight     : 600;
+
+    & ul {
+      list-style  : none;
+      padding     : 0;
+    }
+  }
+
+  & .imprint {
+
+    min-width   : var(--content-sm);
+    font-size   : var(--font-size-sm);
+    font-weight : 700;
+
+    & .legal  {
+      font-size   : var(--font-size-xs); 
+      font-weight : 400;
+    }
+    
+    & .ps {
+      display           : inline-block;
+      padding           : 0 1em;
+      border-radius     : 1em;
+      background-color  : var(--primary-color);
+      color             : var(--background-color);
+      font-size         : var(--font-size-xs);
+    }
+    
+    & .ps:hover {
+      background: linear-gradient(318deg, #b86ec8, #36bfd5);
+      background-size: 150% 150%;
+      
+      -webkit-animation: ShiftBackground 0.5s ease infinite;
+      -moz-animation: ShiftBackground 0.5s ease infinite;
+      -o-animation: ShiftBackground 0.5s ease infinite;
+      animation: ShiftBackground 0.5s ease infinite;
+    }
+  }
+}

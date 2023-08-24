@@ -1,0 +1,58 @@
+/* Base-line section settings */
+.site-section,
+:is(callout-section, deck-section, gallery-section)  {
+  --header-width    : var(--content-md);
+  --content-width   : var(--content-md);
+
+  width             : 100%;
+  max-width         : 100vw;
+
+  padding-inline    : var(--space-md);
+  padding-block     : var(--space-xl);
+
+  display           : flex;
+  flex-direction    : column;
+  justify-items     : center;
+  justify-content   : space-around;
+   
+  color             : var(--primary-color);
+  background-color  : var(--background-color);
+  accent-color      : var(--accent-color);
+}
+
+.site-section__header,
+:is(callout-section, deck-section, gallery-section)::part(header) {
+  width             : 100%;
+  max-width         :  var(--header-width);
+  margin-inline     : auto;
+  margin-block      : 2em;
+  display           : flex;
+  flex-direction    : column;
+  justify-items     : flex-start;
+}
+
+.site-section__title,
+:is(callout-section, deck-section, gallery-section)::part(title)  {
+  width           : 100%;
+  margin-block    : 1em 2em;
+
+  font-size       : var(--font-size-lg);
+  font-weight     : 600;
+  line-height     : 0.9em;
+  text-transform  : uppercase;
+}
+
+.site-section__introduction,
+:is(callout-section, deck-section, gallery-section)::part(introduction) {
+  width         : 100%;
+
+  color         : var(--secondary-color);
+  font-size     : var(--font-size-lg);
+  font-weight   : 200;
+  line-height   : 1.2em;
+}
+
+:is(deck-section, gallery-section)::part(content) {
+  max-width       : var(--content-width);
+  margin-inline   : auto;
+}

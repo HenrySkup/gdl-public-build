@@ -1,0 +1,46 @@
+site-footer {
+
+  & ::part( nav ) {
+    font-weight: bold;
+  }
+
+  & ::part( imprint ) {
+    font-size: small;
+  }
+}
+
+site-footer::part(nav) {
+  font-weight: bold;
+}
+
+site-footer::part(imprint) {
+  font-size: smaller;
+}
+site-footer #footer-note {
+  font-weight: bold;
+}
+site-footer #legal {
+  font-size: small;
+}
+
+site-footer #footer-ps {
+
+  display           : inline-block;
+  width             :  max-content;
+  padding           : 0 1em;
+  border-radius     : 1em;
+  background-color  : var(--primary-color);
+  color             : var(--background-color);
+  font-size: small;
+  font-weight: bolder;
+  
+  &:hover {
+    background: linear-gradient(318deg, #b86ec8, #36bfd5);
+    background-size: 150% 150%;
+    
+    -webkit-animation: ShiftBackground 0.5s ease infinite;
+    -moz-animation: ShiftBackground 0.5s ease infinite;
+    -o-animation: ShiftBackground 0.5s ease infinite;
+    animation: ShiftBackground 0.5s ease infinite;
+  }
+}

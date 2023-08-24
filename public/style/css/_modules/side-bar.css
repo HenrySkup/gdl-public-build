@@ -1,0 +1,15 @@
+side-bar {
+
+
+  & > a {
+    display: block;
+
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  & > hr {
+    margin-block : var(--space-md);
+  }
+}

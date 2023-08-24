@@ -1,0 +1,54 @@
+/* Page Header and "First Section" manipulation */
+.page-header {
+  position        : absolute;
+  z-index         : 10;
+  width           : 100%;
+  max-width       : none;
+  line-height     : normal;
+  text-transform  : uppercase;
+
+  
+}
+
+main > header > *  {
+  max-width     : var(--content-xl);
+  margin-inline : auto;
+}
+
+main > header:first-child {
+  margin-block-start : calc( var(--branding-size) + 2 * var(--space-md) );
+}
+
+main > header:first-child + .site-section {
+  padding-block-start : calc( var(--branding-size) + 3 * var(--space-md) );
+}
+
+.siteBranding {
+  position: absolute;
+  z-index : 1000;
+  margin  : var(--space-md);
+  cursor  : pointer;
+}
+
+.gdl-wordmark {
+  height      : 9vh;
+  max-height  : var(--branding-size);
+  fill        : var(--primary-color);
+}
+
+.siteBranding:hover .gdl-wordmark {
+  fill: var(--secondary-color);
+}
+
+.siteBranding {
+  position: absolute;
+  z-index : 1000;
+  margin  : 1em;
+  cursor  : pointer;
+}
+
+
+.siteBranding:hover .gdl-wordmark {
+  fill  : var(--secondary-color);
+}
+

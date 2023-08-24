@@ -1,0 +1,24 @@
+# Node Related
+node_modules
+.env
+
+# Hugo default output directory
+/resources
+resources/
+/resources/_gen/
+resources/_gen/
+/_vendor
+_vendor/
+/node_modules
+node_modules/
+
+## OS Files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# OSX
+.DS_Store
+**/.DS_Store

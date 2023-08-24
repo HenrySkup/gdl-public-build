@@ -1,0 +1,21 @@
+.legal-section {
+  font-size: smaller;
+  & > ol {
+    list-style-type: decimal;
+
+    & > li::marker,
+    & > li > p:first-of-type {
+      font-weight: bold;
+
+      text-transform: uppercase;
+    }
+
+    & ol {
+      list-style-type: upper-alpha;
+
+      & ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+}

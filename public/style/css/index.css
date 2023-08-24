@@ -1,0 +1,111 @@
+
+/* GLOBAL */
+@import url('./base/normalize.css');
+@import url('./base/layout.css');
+@import url('./base/type.css');
+@import url('./base/themes.css');
+/* Special Components */
+@import url('./sections/site-header.css');
+@import url('./sections/site-sidebar.css');
+@import url('./sections/site-footer.css');
+/* Page Components */
+@import url('./sections/page-sections.css');
+@import url('./sections/page-blocks.css');
+
+
+/* CSS VARIABLES */
+:root {
+  /* Color Names */
+  --white       : rgb(250, 250, 250);
+  --black       : #222;
+
+  --xlight-grey : #e5e5e5;
+  --light-grey  : #dddddd;
+  --grey        : grey;
+  --dark-grey   : #444444;
+
+  --light-brown : rgb(172,153,136);
+  --brown       : #8f7f70;
+  --dark-brown  : rgb(139, 125, 111);
+
+  --bright-blue : #45acc4;
+  --muted-blue  : #4a6777;
+  --dark-blue   : #002a46;
+
+  --muted-green : #4f6e5d;
+  --poppy-red   : #e05535;
+
+
+  /* Color, Font Roles */
+  /* Used for theming */
+  --primary-color     : var(--dark-blue);
+  --secondary-color   : var(--grey);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  --super-muted-color : var(--xlight-grey);
+
+  --background-color  : var(--white);
+  --accent-color      : var(--bright-blue );
+  
+  /* Universal across site */
+  --warning-color     : var(--poppy-red);
+
+  --font-text      : sans-serif;
+  --font-display   : sans-serif;
+  --font-mono      : roboto-mono, monospace;
+
+  /* Site-wide adjustment of 1rem */
+  --ONE-REM        : 22px;
+  --min-content    : 200px;
+  --min-content-px : 200px;
+  --min-content-ch : 35ch;
+
+  /* Sizing */
+  --space-xs  : 0.25rem;
+  --space-sm  : 0.5rem;
+  --space-md  : 1rem;
+  --space-lg  : 1.5rem;
+  --space-xl  : 3rem;
+  --space-xxl : 6rem;
+
+  --content-xs : 250px;
+  --content-sm : 350px;
+  --content-md : 550px;
+  --content-lg : 650px;
+  --content-xl : 80vw;
+
+  --context-fw : 100vw;
+  --context-fh : 100vh;
+
+  --block-xs : 25%;
+  --block-sm : 33%;
+  --block-md : 50%;
+  --block-lg : 66%;
+  --block-xl : 75%;
+  --block-fw : 100%;
+
+  --content-grid-xs : span 1;
+  --content-grid-sm : span 2;
+  --content-grid-md : span 3;
+  --content-grid-lg : span 5;
+  --content-grid-xl : span 6;
+
+  --context-grid-fw : span 8;
+
+  --font-size-xs: 0.65rem;
+  --font-size-sm: 0.8rem;
+  --font-size-md: 1.0rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2.25rem;
+
+  --branding-size : 100px;
+}
+
+@keyframes ShiftBackground {
+  0%{background-position:0% 99%}
+  50%{background-position:100% 2%}
+  100%{background-position:0% 99%}
+}
+
+

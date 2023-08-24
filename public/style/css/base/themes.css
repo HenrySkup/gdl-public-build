@@ -1,0 +1,79 @@
+/* Themes */
+.invisible, .--invisible {
+  --primary-color     : var(--dark-blue);
+  --secondary-color   : var(--dark-blue);
+
+  --contrast-color    : var(--grey);
+  --muted-color       : var(--grey);
+ 
+
+  --background-color  : transparent;
+  --accent-color      : var(--bright-blue );
+}
+
+.light, .--light {
+  --primary-color     : var(--dark-blue);
+  --secondary-color   : var(--brown);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  
+  --background-color  : var(--white);
+  --accent-color      : var(--bright-blue);
+}
+
+.earthy, .--earthy {
+  --primary-color     : var(--light-grey);
+  --secondary-color   : var(--light-grey);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--light-grey);
+  /* --super-muted-color : var(--xlight-grey); */
+
+  --background-color  : var(--muted-green);
+  --accent-color      : var(--white);
+}
+
+.cool, .--cool {
+  --primary-color     : var(--light-grey);
+  --secondary-color   : var(--light-brown);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  
+  --background-color  : var(--muted-blue);
+  --accent-color      : var(--white);
+}
+
+.dark, .--dark {
+  --primary-color     : var(--white);
+  --secondary-color   : var(--light-grey);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  
+  --background-color  : var(--dark-brown);
+  --accent-color      : var(--bright-blue);
+}
+
+.party, .--party {
+  --primary-color     : var(--light-grey);
+  --secondary-color   : var(--dark-blue);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  
+  --background-color  : var(--white);
+  --accent-color      : var(--bright-blue );
+
+  /* background-image    :linear-gradient(#f69d3c, #3f87a6); */
+
+  background: linear-gradient(318deg, #36b292, #b86ec8, #36bfd5);
+  background-size: 600% 600%;
+  
+  -webkit-animation: ShiftBackground 5s ease infinite;
+  -moz-animation: ShiftBackground 5s ease infinite;
+  -o-animation: ShiftBackground 5s ease infinite;
+  animation: ShiftBackground 5s ease infinite;
+  
+}
