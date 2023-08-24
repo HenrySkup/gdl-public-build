@@ -1,0 +1,8 @@
+{
+  "name": "gdl-public-build",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/HenrySkup/gdl-public-build.git",
+  "author": "Henry Skupniewicz <henryskup@gmail.com>",
+  "license": "MIT"
+}
