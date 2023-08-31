@@ -1,14 +1,28 @@
 side-bar {
 
   & > a {
-    display: block;
+    display     : block;
 
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    line-height: normal;
+    font-size   : var(--font-size-lg);
+    font-weight : 600;
+    line-height : normal;
+
+    &:not([href]) {
+      font-size       : var(--font-size-md);
+      cursor          : none;
+      text-decoration : none;
+      color           : var(--muted-color);
+      cursor          : wait;
+    }
   }
 
+  & > header {
+    margin-block-start  : var(--space-xl);
+    font-size           : var(--font-size-md);
+    font-weight         : 600;
+  }
   & > hr {
-    margin-block : var(--space-md);
+    margin-block : var(--space-sm);
   }
+
 }

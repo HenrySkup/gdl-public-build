@@ -1,26 +1,41 @@
 site-footer {
 
-  & ::part( nav ) {
-    font-weight: bold;
+  gap : var(--space-xl);
+
+  & > * {
+    margin-inline: 0;
+  }
+  
+  &::part( nav ) {
+    font-weight   : bold;
   }
 
-  & ::part( imprint ) {
-    font-size: small;
+  &::part( imprint ) {
+    font-size   : small;
   }
 }
 
-site-footer::part(nav) {
-  font-weight: bold;
-}
-
-site-footer::part(imprint) {
-  font-size: smaller;
+site-footer #footer-branding {
+  width             : 5em;
+  margin-block-end  : var(--space-lg);
+  fill              : var(--primary-color);
 }
 site-footer #footer-note {
   font-weight: bold;
 }
 site-footer #legal {
+  position: relative;
   font-size: small;
+  margin-block-start: var(--space-sm);
+  /* Decorative Line */
+  &::before {
+    display: block;
+    position: relative;
+    width: 50%;
+    border-top : 0.5px solid var(--primary-color);
+    content : '';
+    padding-block-start: var(--space-xs);
+  }
 }
 
 site-footer #footer-ps {

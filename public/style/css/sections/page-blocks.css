@@ -19,7 +19,31 @@
   font-weight : bold;
 }
 
-:is( card-card, tag-tag )::part( content ) {
+
+
+
+
+card-card {
+  --card-gap : var( --space-lg );
+}
+card-card::part( header ) {
+  margin-block-end: var( --space-md );
+}
+card-card::part( subtitle ) {
+  color       : var(--muted-color);
+  font-size   : smaller;
+  font-weight : bold;
+}
+card-card::part( content ) {
   color : var(--primary-color);
 }
+card-card dl {
+  & dd {
+    margin-inline-start: 0;
+    font-weight: normal;
+  }
+}
 
+card-card > p {
+ margin-block : 0.5em;
+}

@@ -628,12 +628,17 @@
 
       height              : 100vh;
       height              : -webkit-fill-available;
+
+      display : flex;
+      flex-direction : column;
+      justify-content : space-between;
       max-height          : 100vh;
       overflow-y          : scroll;
       width               : 100vw;
       max-width           : var(--content-sm);
       margin-block        : 0;
       padding-block-start : calc( 1.25 * var(--toggle-size));
+      padding-block-end : 1em;
 
       transform         : translateX(110vw);
       transition        : transform 0.5s ease-in-out;
@@ -641,10 +646,13 @@
     }
 
     [part  = "nav"] {
+
+
       display         : flex;
       flex-direction  : column;
       gap             : var(--space-sm);
       padding-inline  : var(--space-sm);
+
     }
 
     ::slotted( hr ) {
@@ -666,12 +674,12 @@
         part  = "menu"
         style = "transform : ${this.open ? "translateX(0)" : "translateX(110vw)"}" >
 
-        <nav part  = "nav">
+        <nav part = "nav">
           <slot></slot>
         </nav>
 
-        <footer>  
-          <slot name="logo"></slot>    
+        <footer part = "footer">  
+          <slot name="footer"></slot>    
         </footer>
       </menu> 
     `;
@@ -686,12 +694,14 @@
   var PageSection = class extends s4 {
     static properties = {
       layout: { type: String },
-      size: { type: String }
+      size: { type: String },
+      _contentRegistry: { type: Object, state: true }
     };
     static styles = i`
     :host {
-      --header-width    : 100%;
-      --content-width   : 100%;
+      --header-width        : 100%;
+      --introduction-width  : 100%;
+      --content-width       : 100%;
 
       display           : flex;
       flex-direction    : column;
@@ -706,6 +716,8 @@
       color             : var(--primary-color);
       background-color  : var(--background-color);
       accent-color      : var(--accent-color);
+
+      container : content / inline-size;
     }
 
     [part="header"] {
@@ -716,34 +728,80 @@
       display           : flex;
       flex-direction    : column;
       justify-items     : flex-start;
+      gap : var(--space-sm);
     }
     [part="title"] {
       width         : 100%;
-      margin-block  : 1em 2em;
+      /* margin-block  : 1em 0.5em; */
     }
     [part="introduction"] {
       width         : 100%;
+      max-width     : var(--header-width);
+      margin-inline : auto;
+      margin-block-end : 1em;
     }
+
+    [part="introduction"] ::slotted( * ) {
+      max-width : var(--introduction-width);
+    }
+
     [part="content"] {
+    }
+
+    [hidden] {
+      display : none;
+    }
+
+    [part="content"] ::slotted( :not( card-card ) ) {
       max-width       : var(--content-width);
       margin-inline   : auto;
+    }
+
+    [part="content"] ::slotted( tag-tag ) {
+      display : block;
+    }
+
+    [part="content"] ::slotted( card-card ) {
+      --wrapperMaxWidth     : var(--content-width);
     }
   `;
     constructor() {
       super();
       this.layout = void 0;
       this.size = void 0;
+      this._contentRegistry = {
+        title: false,
+        subtitle: false,
+        introduction: false,
+        content: false
+      };
     }
     render() {
       return x`
-      <header part="header">
+      <header 
+        part="header"
+        @slotchange = ${this.registerContent}
+        ?hidden     = ${!this._contentRegistry.title}>
+
         <div part="title"><slot name="title"></slot></div>
-        <div part="introduction"><slot name="introduction"></slot></div>
+
       </header>
+
+      <div 
+        part="introduction"
+        @slotchange = ${this.registerContent}>
+        <slot name="introduction"></slot>
+      </div>
 
       <div part="content"><slot></slot></div>
 
     `;
+    }
+    registerContent(e4) {
+      if (e4.target.assignedNodes()) {
+        this._contentRegistry[e4.target.name] = true;
+        this._contentRegistry = { ...this._contentRegistry };
+      }
     }
   };
   customElements.define("page-section", PageSection);
@@ -767,6 +825,11 @@
         width           : max-content;
         display         : flex;
         flex-direction  : column;
+        gap : var(--space-sm);
+      }
+
+      ::slotted( * ) {
+        margin-inline   : 0;
       }
     `
     ];
@@ -786,56 +849,6 @@
     }
   };
   customElements.define("site-footer", SiteFooter);
-
-  // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/DeckSection/index.js
-  var DeckSection = class extends PageSection {
-    static properties = {
-      layout: { type: String, reflect: true },
-      size: { type: String, reflect: true }
-    };
-    static styles = [
-      PageSection.styles,
-      i`
-      :host {
-        --deck-gap : var(--space-sm);
-      }
-
-      :host([layout="row"]) [part="content"] {
-        flex-direction  : row;
-        flex-wrap       : wrap;
-      }
-      :host([layout="column"]) [part="content"] {
-        flex-direction : column;
-      }
-
-      [part="content"] {
-        margin-inline : auto;
-        display : flex;
-        gap     : var(--deck-gap);
-        align-items : center;
-      }
-  `
-    ];
-    constructor() {
-      super();
-      this.layout = "row";
-      this.size = "md";
-    }
-    render() {
-      return x`
-      <header part="header">
-        <div part="title"><slot name="title"></slot></div>
-        <div part="introduction">
-          <slot name="introduction"></slot>
-        </div>
-      </header>
-
-      <div part="content"><slot></slot></div>
-
-    `;
-    }
-  };
-  customElements.define("deck-section", DeckSection);
 
   // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/CalloutSection/index.js
   var CalloutSection = class extends s4 {
@@ -857,20 +870,27 @@
       gap             : 1em;
   
       background-color : var(--background-color);
+
+      /* Use Viewport units for a more responsive text size */
+      font-size     : max(8vw, 5vh); 
+      font-weight   : 900;
+      line-height   : 1em;
+      color         : var(--primary-color);
+      font-family   : var(--font-display);
     }
     [part="content"] {
       position      : absolute;
       z-index       : 1000;
       /* max-width     : min(90vw, 35ch); */
-      max-width : 90vw;
+      max-width     : 90vw;
       margin-inline : auto;
 
-      color         : var(--primary-color);
-      font-family   : var(--font-display);
-      /* Use Viewport units for a more responsive text size */
-      font-size     : 8vh; 
-      font-weight   : 900;
-      line-height   : 1em;
+      color         : inherit;
+      font-family   : inherit;
+      font-size     : inherit; 
+      font-weight   : inherit;
+      line-height   : inherit;
+      
     }
 
     [part="background"] {
@@ -907,53 +927,410 @@
   };
   customElements.define("callout-section", CalloutSection);
 
+  // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/DeckSection/index.js
+  var DeckSection = class extends PageSection {
+    static properties = {
+      size: { type: String, reflect: true },
+      layout: { type: String, reflect: true },
+      _contentRegistry: { type: Object }
+    };
+    static styles = [
+      PageSection.styles,
+      i`
+      :host {
+        --layout    : row;
+        --wrap      : nowrap;
+        --deck-gap  : var(--space-sm);
+
+        container : deck / inline-size;
+      }
+
+     
+
+      :host([layout="column"]) {
+        --layout    : column;
+      }
+      :host([layout="column"]) ::slotted( card-card ) {
+        margin-inline : auto;
+      }
+
+      :host([layout="row"]){
+        --layout    : row; 
+        --wrap      : wrap;    
+      }
+
+      :host([layout="row"]) ::slotted( card-card ) {
+        --wrapperMaxWidth : none;
+      }
+
+      [part="content"] {
+        width           : 100%;
+        max-width       : var(--content-width);
+        margin-inline   : auto;
+        display         : flex;
+        gap             : var(--deck-gap);
+        flex-direction  : var(--layout);
+        flex-wrap       : var(--wrap);
+        justify-content : space-evenly;
+        
+        /* align-items     : center; */
+
+        &.--tag-list {
+          flex-direction : row;
+          gap :var(--space-md);
+          justify-content : center;
+          align-items : center;
+
+          & ::slotted( tag-tag ){
+            margin-inline : 0;
+          }
+        }
+      }
+
+      ::slotted( header ) {
+        max-width   : none;
+        width       : 100%;
+        flex-grow   : 1;
+        font-weight : bolder;
+        
+      }
+      ::slotted( card-card ) {
+        width              : 100%;
+        --wrapperMaxWidth  : var(--size);
+      }
+
+     
+
+      @container deck ( max-width: 400px ) {
+        [part="content"] {
+          --layout : column;
+        }
+      }
+
+      
+  `
+    ];
+    constructor() {
+      super();
+      this.size = "md";
+      this.layout = "column";
+      this._contentRegistry = /* @__PURE__ */ new Set();
+    }
+    render() {
+      return x`
+      <header part="header">
+        <div part="title">
+          <slot name="title"></slot>
+        </div>
+
+        <div part="subtitle">
+          <slot name="subtitle"></slot>
+        </div>
+      </header>
+
+      <div part="introduction">
+        <slot name="introduction"></slot>
+      </div>
+
+      <div  part="content"
+            class= "
+              ${this._contentRegistry.size == 1 && this._contentRegistry.has("TAG-TAG") ? "--tag-list" : A}
+            "
+      >
+        <slot @slotchange=${this.registerContent}></slot>
+      </div>
+
+    `;
+    }
+    registerContent(e4) {
+      let tagNames = new Set(this._contentRegistry);
+      e4.target.assignedNodes().filter((node) => node.tagName != void 0).forEach((node) => tagNames.add(node.tagName));
+      console.log(tagNames);
+      this._contentRegistry = tagNames;
+    }
+  };
+  customElements.define("deck-section", DeckSection);
+
+  // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/GallerySection/index.js
+  var GallerySection = class extends PageSection {
+    static properties = {
+      size: { type: String, reflect: true },
+      layout: { type: String, reflect: true },
+      captionPosition: { type: String, reflect: true }
+    };
+    static styles = [
+      PageSection.styles,
+      i`
+      :host {
+        --layout        : grid;
+        --gallery-gap   : var(--space-sm);
+
+        display         : flex;
+        gap             : var(--space-lg);
+        flex-direction  : row;
+        color           : var(--secondary-color);
+        font-size       : smaller;
+
+        container : gallery / inline-size;
+      }
+
+      /* Caption Positioning */
+      :host([captionPosition="left"]) #wrapper  { flex-direction : row-reverse }
+      :host([captionPosition="bottom"]) { flex-direction : column }
+      :host([captionPosition="right"])  { flex-direction : row }
+      :host([captionPosition="right"]) [part="content"],
+      :host([captionPosition="left"]) [part="content"] { max-width : none }
+
+      [part="caption"] {
+        width           : 100%;
+        flex-basis      : var(--content-sm);  
+        max-width       : var(--content-sm); 
+        display         : flex;
+        flex-direction  : column;
+      }
+
+      [part="title"] { }
+
+      [part="content"] {
+
+        /*
+        look into this????
+        https://css-tricks.com/an-auto-filling-css-grid-with-max-columns/
+
+        */
+
+        --minCellSize   : 100; // px
+        --grid-columns  : calc( 200 / var( --minCellSize ) );
+
+        width         : 100%;
+        max-width     : var(--content-width);
+        margin-inline : auto;
+
+        display               : grid;
+        gap                   : 1em;
+        grid-auto-flow        : row dense;
+        grid-template-columns : repeat( auto-fill, 
+                                        minmax( 
+                                          calc( var( --minCellSize ) * 1px ),
+                                          1fr 
+                                        ) 
+                                      );
+        grid-auto-rows        : minmax( 
+                                  calc( var( --minCellSize ) * 1px ), 
+                                  1fr 
+                                );
+        
+        & ::slotted( * ) {
+          --spanSize      : 1;
+          --spanX         : 1;
+          --spanY         : 1;
+          grid-column : span min( var( --repeat ),
+                                  calc( var( --spanSize ) * var( --spanX ) ) 
+                                );
+          grid-row    : span min( var( --repeat ),
+                                  calc( var( --spanSize ) * var( --spanY ) )
+                                );
+          align-self    : center;
+          margin-inline : 0;
+
+          height : 100%;
+          height : -webkit-fill-available;
+          width  : 100%;
+          width  : -webkit-fill-available;
+        }
+
+        /* Sizing slotted content */
+        & ::slotted( [size="xs"] ) { --spanSize : 1 }
+        & ::slotted( [size="sm"] ) { --spanSize : 2 }
+        & ::slotted( [size="md"] ) { --spanSize : 3 }
+        & ::slotted( [size="lg"] ) { --spanSize : 4 }
+        & ::slotted( [size="xl"] ) { --spanSize : 5 }
+        
+        /* Shaping slotted content */
+        ::slotted( [shape="square"] ) { --spanX: 1; --spanY : 1 }
+        ::slotted( [shape="brick"] )  { --spanX: 2; --spanY : 1 }
+        ::slotted( [shape="column"] ) { --spanX: 1; --spanY : 2 }
+
+        & [part="caption"] {
+          /* border : solid red 2px; */
+
+          color : var(--muted-color);
+          grid-column : span 3;
+          grid-row    : span 2;
+
+          /* width : 100%; */
+
+          & header { 
+            margin : 0;
+            margin-block-end : 1em;
+          }
+        }
+      }
+
+      /* Change Layout based on size of the gallery block */
+      @container gallery ( max-width : 549px ) {
+        #wrapper,
+        [part="content"] { 
+          display        : flex;
+          flex-direction : column;
+        }
+      }
+      @container gallery ( min-width : 550px ) {
+        [part="content"] { 
+          --repeat : calc( 550 / 100 ) }
+      }
+      @container gallery ( min-width : 750px ) {
+        [part="content"] { --repeat : calc( 600 / 100 ); }
+      }
+      @container gallery ( min-width : 950px ) {
+        [part="content"] { --repeat : calc( 800 / 100 ); }
+      }
+      @container gallery ( min-width : 1150px ) {
+        [part="content"] { --repeat : calc( 1000 / 100 ); }
+      }
+      
+  `
+    ];
+    constructor() {
+      super();
+      this.size = "md";
+      this.layout = "grid";
+      this.captionPosition = "bottom";
+      this.showFigcaptions = false;
+    }
+    render() {
+      return x`
+      <div id="wrapper">
+        <div part="content">
+          <slot></slot>
+
+          <figcaption part="caption"> 
+            <header part="title">
+              <slot name="title"></slot>
+            </header>
+            <div part="gallerycaption">
+              <slot name="gallerycaption"></slot>
+            </div>
+            <ol part="figcaptions"
+                ?hidden = ${!this.showFigcaptions}>
+              <slot name="figcaption"></slot>
+            </ol>
+          </figcaption>
+
+        </div>
+      </div>
+    `;
+    }
+  };
+  customElements.define("gallery-section", GallerySection);
+
   // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/CardBlock/index.js
   var CardBlock = class extends s4 {
     static properties = {
-      size: { type: String },
+      size: { type: String, reflect: true },
+      position: { type: String, reflect: true },
+      layout: { type: String, reflect: true },
+      relativeFontSize: { type: String, reflect: true },
       mediaLayout: { type: String },
       mediaSrc: { type: String },
-      mediaShape: { type: String }
+      mediaShape: { type: String },
+      href: { type: String }
     };
     static styles = i`
     :host {
-      --size      : var(--block-md);
-      --card-gap  : var(--space-sm);
+      --size            : var(--block-md);
+      --position        : flex-start;
+      --card-gap        : 1em;
+      --layout          : column;
 
-      justify-self      : flex-start;
-      width             : 100%;
-      max-width         : calc( var(--size) - var(--deck-gap));
-      min-width         : var(--min-content-px);
+      --wrapperMaxWidth : var(--size);
 
-      display           : flex;
-      flex-direction    : column;
-      align-items       : center;
-      gap               : var(--card-gap);
+      flex-basis    : calc( var(--size) - var(--deck-gap));
+      flex-shrink   : 1;
 
-      color             : var(--primary-color);
-      background-color  : var(--background-color);
-      accent-color      : var(--accent-color);
+      display       : block;
+
+      /* margin-inline : auto;  */
+      /* justify-self  : stretch;
+      align-self    : stretch; */
+
+      
+      /* width : 100%; */
+      /* width         : var(--size); */
+      /* max-width     : var(--size); */
+      min-width     : 250px;
+
+      container     : card-width / inline-size;
+    }
+
+    :host([href]) {
+      cursor : pointer;
+    }
+
+    :host([ relativeFontSize = "smaller" ]) {
+      flex-basis  : 50%;
+      font-size   : smaller;
+    }
+    :host([ relativeFontSize = "inherit" ]) {
+      font-size : inherit;
+    }
+    :host([ relativeFontSize = "larger" ]) [part="content"] {
+      flex-basis  : 150%;
+      display     : block;
+      font-size   : larger;
+      line-height : normal;
     }
 
     :host([mediaLayout="row"]) {
-      flex-direction  : row;
+      --layout : row;
     }
     :host([mediaLayout="row-reverse"]) {
-      flex-direction  : row-reverse;
+      --layout : row-reverse;
     }
     :host([mediaLayout="column"]) {
-      flex-direction  : column;
+      --layout : column;
     }
     :host([mediaLayout="column-reverse"]) {
-      flex-direction  : column-reverse;
+      --layout : column-reverse;
+    }
+
+    :host([position="left"]) {
+      --margin-inline-start : 0;
+      --margin-inline-end : auto;
+      /* margin-inline-start : 0; */
+    }
+    :host([position="center"]) {
+      --margin-inline-start : auto;
+      --margin-inline-end   : auto;
+    }
+    :host([position="right"]) {
+      --margin-inline-start : auto;
+      --margin-inline-end   : 0;
+    }
+ 
+
+    #wrapper {
+      display             : flex;
+      flex-direction      : var(--layout);
+      align-items         : center;
+      gap                 : var(--card-gap);
+      max-width           : var(--wrapperMaxWidth);
+      margin-inline-start : var(--margin-inline-start);
+      margin-inline-end   : var(--margin-inline-end);
+ 
+      /* overflow          : hidden; */
     }
 
     [part="content"] {
-      flex-basis  : 100%;
-      display           : flex;
-      flex-direction    : column;
-      padding           : var(--space-sm);
+      flex-basis      : 100%;
+      display         : flex;
+      flex-direction  : column;
+
+      padding         : var(--space-sm);
+      width           : 100%;
+      min-width       : var(--min-content-px);
     }
+
     [part="header"] {
       width             : 100%;
       display           : flex;
@@ -961,14 +1338,15 @@
       justify-items     : flex-start;
     }
     [part="title"] {
-
       width         : 100%;
-      margin-block  : 1em 1em;
     }
+    
     [part="media"] {
+
       flex-basis  : 100%;
       position    : relative;
       overflow    : hidden;
+      min-width   : 200px;
     }
     [part="media"] img {
       width         : 100%;
@@ -976,56 +1354,322 @@
       aspect-ratio  : inherit;
     }
 
-    [part="media"].--square {
-      aspect-ratio  : 1 / 1;
-
-      & img { height : 100%; }
-    }
-
-    [part="media"].--circle {
+    /* Media Shaping */
+    [part="media"] {
+      &.--square {
+        aspect-ratio  : 1 / 1;
+        & img { height : 100%; }
+      }
+      &.--circle {
       aspect-ratio  : 1 / 1;
       clip-path     : circle( 50% at center);
-
-      & img { height : 100%; }
+        & img { height : 100%; }
+      }
+      &.--brick {
+        aspect-ratio  : 2 / 1;
+      }
+      &.--column {
+        aspect-ratio  : 1 / 2;
+      }
     }
-    
-    [part="media"].--brick {
-      aspect-ratio  : 2 / 1;
+ 
+    @container card-width ( max-width: 400px ) {
+      #wrapper{
+        --position            : center;
+        --layout              : column-reverse;
+        --margin-inline-start : auto;
+        --margin-inline-end   : auto;
+        max-width             : none;
+      }
     }
-
-    [part="media"].--column {
-      aspect-ratio  : 1 / 2;
-    }
-
-    
   `;
     constructor() {
       super();
       this.size = void 0;
+      this.potion = void 0;
       this.layout = void 0;
+      this.relativeFontSize = "inherit";
+      this.mediaSrc = void 0;
       this.mediaLayout = void 0;
       this.mediaShape = void 0;
+      this.href = void 0;
+      this.target = "_self";
+    }
+    connectedCallback() {
+      super.connectedCallback();
+      this.addEventListener(
+        "click",
+        () => window.open(this.href, this.target)
+      );
     }
     render() {
       return x`
-      <div part="content">
-        <header part="header">
-          <div part="title"><slot name="title"></slot></div>
-        </header>
+      <div id="wrapper">
+        <div part="content">
+          <header part="header">
+            <div part="title"><slot name="title"></slot></div>
+            <div part="subtitle"><slot name="subtitle"></slot></div>
+          </header>
+          <slot></slot>
+        </div>
 
-        <slot></slot>
+        ${this.mediaSrc ? x`
+            <div part="media" class="--${this.mediaShape}">
+              <img src = ${this.mediaSrc} />
+            </div>` : A}
       </div>
-
-      ${this.mediaSrc ? x`
-          <div part="media" class="--${this.mediaShape}">
-            <img src = ${this.mediaSrc} />
-          </div>` : A}
-      
-
     `;
     }
   };
   customElements.define("card-card", CardBlock);
+
+  // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/TagBlock/index.js
+  var TagBlock = class extends s4 {
+    static properties = {
+      size: { type: String, reflect: true },
+      position: { type: String, reflect: true },
+      href: { type: String, reflect: true },
+      target: { type: String }
+    };
+    static styles = i`
+    :host {
+      /* --size        : var(--block-md); */
+      --position    : flex-start;
+      --card-gap    : var(--space-sm);
+      --layout      : column;
+  
+      align-self      : var(--position );
+      display         : inline-flex;
+      justify-content : center;
+      align-items     : center;
+      width           : max-content;
+      padding         : 0.1em 0.75em;
+
+      border-width  : 0.1em;
+      border-radius : 1.5em;
+      border-color  : var(--primary-color);
+      border-style  : solid;
+
+      font-weight : bolder;
+      
+    }
+
+    :host([position="left"]) {
+      --position  : flex-start;
+    }
+    :host([position="center"]) {
+      --position  : center;
+    }
+    :host([position="right"]) {
+      --position  : flex-end;
+    }
+
+    :host([href]) {
+      cursor : pointer;
+    }
+    :host([href]:hover) {
+      color             : var( --secondary-color );
+      border-color      : var( --secondary-color );
+      background-color  : var( --primary-color );
+    }
+  `;
+    constructor() {
+      super();
+      this.href = void 0;
+      this.target = "_self";
+      this.size = void 0;
+      this.position = void 0;
+      this.addEventListener(
+        "click",
+        () => window.open(this.href, this.target)
+      );
+    }
+    render() {
+      return x`<slot></slot>`;
+    }
+  };
+  customElements.define("tag-tag", TagBlock);
+
+  // ns-hugo:/Users/henryskup/Documents/Github/gdl-hugo-tina-site/themes/gdl-hugo-theme/assets/js/Figure/index.js
+  var FigureBlock = class extends s4 {
+    static properties = {
+      src: { type: String },
+      placeholder: { type: String },
+      loading: { type: String },
+      size: { type: String, reflect: true },
+      shape: { type: String, reflect: true },
+      layout: { type: String, reflect: true },
+      loaded: { type: Boolean, reflect: true },
+      _hasTitle: { type: Boolean, state: true },
+      _hasFigcaption: { type: Boolean, state: true }
+    };
+    static styles = i`
+    :host {
+      --size            : var(--block-md);
+      --figure-gap      : var(--space-md);
+      --figcaption-size : 40ch;
+
+      --_layout         : column;
+      --_media-opacity  : 0;
+
+      max-width         : var(--size);
+
+      margin-inline     : auto;
+      display           : flex;
+      flex-direction    : var(--_layout);
+      align-items       : flex-start;
+      gap               : var(--figure-gap);
+
+      color             : var(--primary-color);
+      /* background-color  : var(--background-color); */
+      accent-color      : var(--accent-color);
+    }
+    :host([loaded]) {
+      --_media-opacity : 1;
+    }
+
+    /* Layout */
+    :host([layout="column"]) {
+      --_layout : column;
+    }
+    :host([layout="row"]) {
+      --_layout   : row;
+      max-width   : min( 100%, calc( var(--size) + var(--figcaption-size) ));
+      align-items : flex-end;
+    }
+    :host([layout="row-reverse"]) {
+      --_layout : row-reverse;
+      max-width   : min( 100%, calc( var(--size) + var(--figcaption-size) ));
+    }
+
+    [part="figcaption"] {
+      max-width   : var(--figcaption-size);
+      font-size   : smaller;
+      line-height : 1.1em;
+    }
+
+    /* Media Sizing */
+    :host([size="xs"]) { --size : var(--block-xs); }
+    :host([size="sm"]) { --size : var(--block-sm); }
+    :host([size="md"]) { --size : var(--block-md); }
+    :host([size="lg"]) { --size : var(--block-lg); }
+    :host([size="xl"]) { --size : var(--block-xl); }
+    :host([size="fw"]) { --size : var(--block-fw); }
+
+    [part="media"] {
+      flex-basis  : 100%;
+      position    : relative;
+      overflow    : hidden;
+      min-width   : 200px;
+    }
+    [part="media"] img {
+      width         : 100%;
+      object-fit    : cover;
+      aspect-ratio  : inherit;
+     }
+    /* Media Shaping */
+    [part="media"] {
+      &.--square {
+        /* aspect-ratio  : 1 / 1; */
+        & picture { 
+          aspect-ratio  : 1 / 1; }
+      }
+      &.--circle {
+      /* aspect-ratio  : 1 / 1; */
+      clip-path     : circle( 50% at center);
+        & picture { aspect-ratio  : 1 / 1;
+        height : 100%; }
+      }
+      &.--brick picture {
+        aspect-ratio  : 2 / 1;
+      }
+      &.--column picture {
+        aspect-ratio  : 1 / 2;
+      }
+    }
+ 
+
+    
+
+
+    [part="media"] {
+    }
+
+    [part="figcaption"] {
+      max-width   : var(--figcaption-size);
+      font-size   : smaller;
+      line-height : 1.1em;
+    }
+
+    picture {
+      width   : 100%;
+      height  : 100%;
+      display : flex;
+      /* Placeholder image related */
+      background-position : 50% 50%;
+      background-repeat   : no-repeat;
+      background-size     : cover;
+    }
+
+    picture img {
+      object-fit  : cover; 
+      height      : auto;
+      width       : 100%;
+      /* Loading related */
+      opacity     : var(--_media-opacity);
+      transition  : opacity 1s ease-in;
+    }
+  `;
+    constructor() {
+      super();
+      this.size = void 0;
+      this.src = void 0;
+      this.layout = "column";
+      this.shape = "square";
+      this.loading = "lazy";
+      this.placeholder = void 0;
+      this.loaded = false;
+      this._hasFigcaption = false;
+      this._hasTitle = false;
+    }
+    render() {
+      return x`
+      <div part="media" class="--${this.shape}">
+        <picture
+          style="background-image : url('${this.placeholder}');">
+
+
+          <img  src = ${this.src} 
+                loading = ${this.loading}
+                @load = ${() => {
+        this.loaded = true;
+      }}>
+        </picture>
+      </div>
+      
+      <!-- Show/Hide things so it does not affect flow.-->
+      <figcaption 
+        @slotchange = ${this.registerContent}
+        part="figcaption"
+        ?hidden = ${!this._hasTitle && !this._hasFigcaption}>
+        
+        <header part="title"
+                ?hidden = ${!this._hasTitle}>
+          <slot name="title" 
+               ></slot>
+        </header>
+        
+        <slot >
+        </slot> 
+      </figcaption>
+    
+    `;
+    }
+    registerContent(e4) {
+      console.log(e4);
+    }
+  };
+  customElements.define("figure-figure", FigureBlock);
 })();
 /*! Bundled license information:
 

@@ -5,51 +5,59 @@
  *
  */
 
+
+
+/* Multiple Sections */
 :is(  page-section, 
       callout-section, 
       deck-section, 
       gallery-section,
       site-footer 
 ) {
-  --header-width    : var(--content-lg);
-  --content-width   : var(--content-lg);
+  --header-width        : var(--content-md);
+  --introduction-width  : var(--content-md);
+  --content-width       : var(--content-md);
 }
 
-:is(  page-section, 
-      deck-section, 
-      gallery-section,
-      site-footer 
-) {
+:is( page-section,
+deck-section, 
+gallery-section,
+site-footer ) {
 
+  /* Header should match left edge of content wrapper ... */
+  &[size="md"] {
+    /* Default... see above */
+  }
   &[size="lg"] {
-    --header-width    : var(--content-lg);
     --content-width   : var(--content-lg);
+    --header-width    : var(--content-lg);
   }
-
   &[size="xl"] {
-    --header-width    : var(--content-lg);
     --content-width   : var(--content-xl);
+    --header-width    : var(--content-xl);
   }
-
   &[size="fw"] {
-    --header-width    : var(--content-lg);
     --content-width   : var(--context-fw);
+    --header-width    : var(--content-fw);
   }
 
+  /* But if the section has an introduction, make the header the same size as the introduction */
+  &:has( [slot="introduction"] ){
+    --header-width    : var(--introduction-width);
+  }
 }
 
 :is(  page-section, 
       callout-section, 
       deck-section, 
-      gallery-section )::part(header),
+      gallery-section )::part( header ),
 .page-section__header {
   
 }
 
 :is(  page-section,
       callout-section, 
-      deck-section, 
-      gallery-section )::part(title),
+      deck-section )::part( title ),
 .page-section__title  {
   color           : var(--muted-color);
   font-size       : var(--font-size-lg);
@@ -61,7 +69,7 @@
 :is(  page-section, 
       callout-section, 
       deck-section, 
-      gallery-section )::part(introduction),
+      gallery-section )::part( introduction ),
 .page-section__introduction {
   color         : var(--secondary-color);
   font-size     : var(--font-size-lg);
@@ -71,7 +79,47 @@
 
 :is(  page-section, 
       deck-section, 
-      gallery-section )::part(content),
+      gallery-section )::part( content ),
 .page-section__content {
   color         : var(--primary-color);
 }
+
+/* Gallery Section */
+gallery-section {
+  font-size : var(--font-size-sm);
+  color     : var(--muted-color);
+}
+gallery-section::part( title ) {
+  font-weight : 600;
+}
+
+/* Deck Section */
+deck-section {
+  --deck-gap  : var(--space-xl);
+
+  & :is( header, hr ) {
+    margin-block-start  : var(--space-lg);
+    text-transform      : uppercase;
+    color               : var(--secondary-color);
+  }
+  & header::before {
+    display             : block;
+    position            : relative;
+    width               : 50%;
+    border-top          : 2px solid var(--secondary-color);
+    content             : '';
+    padding-block-start : var(--space-xs);
+  }
+
+}
+
+/* Page Section */
+page-section > card-card {
+  margin-block : var(--space-xl);
+}
+page-section > p:has( img:only-child ) {
+  margin-block : var(--space-xxl);
+}
+
+
+
