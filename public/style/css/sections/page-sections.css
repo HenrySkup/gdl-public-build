@@ -5,8 +5,6 @@
  *
  */
 
-
-
 /* Multiple Sections */
 :is(  page-section, 
       callout-section, 
@@ -19,11 +17,10 @@
   --content-width       : var(--content-md);
 }
 
-:is( page-section,
-deck-section, 
-gallery-section,
-site-footer ) {
-
+:is(  page-section,
+      deck-section, 
+      gallery-section,
+      site-footer ) {
   /* Header should match left edge of content wrapper ... */
   &[size="md"] {
     /* Default... see above */
@@ -50,16 +47,17 @@ site-footer ) {
 :is(  page-section, 
       callout-section, 
       deck-section, 
-      gallery-section )::part( header ),
-.page-section__header {
+      gallery-section 
+    )::part( header ) {
   
 }
 
 :is(  page-section,
       callout-section, 
-      deck-section )::part( title ),
-.page-section__title  {
+      deck-section 
+    )::part( title ) {
   color           : var(--muted-color);
+  font-family     : var(--font-display);
   font-size       : var(--font-size-lg);
   font-weight     : 600;
   line-height     : 0.9em;
@@ -69,19 +67,19 @@ site-footer ) {
 :is(  page-section, 
       callout-section, 
       deck-section, 
-      gallery-section )::part( introduction ),
-.page-section__introduction {
-  color         : var(--secondary-color);
-  font-size     : var(--font-size-lg);
-  font-weight   : 200;
-  line-height   : 1.25em;
+      gallery-section 
+    )::part( introduction ) {
+  color       : var(--secondary-color);
+  font-size   : var(--font-size-lg);
+  font-weight : 200;
+  line-height : 1.25em;
 }
 
 :is(  page-section, 
       deck-section, 
-      gallery-section )::part( content ),
-.page-section__content {
-  color         : var(--primary-color);
+      gallery-section 
+    )::part( content ) {
+  color : var(--primary-color);
 }
 
 /* Gallery Section */
@@ -116,10 +114,19 @@ deck-section {
 /* Page Section */
 page-section > card-card {
   margin-block : var(--space-xl);
+  --wrapperMaxWidth     : var(--content-width);
 }
 page-section > p:has( img:only-child ) {
   margin-block : var(--space-xxl);
 }
+
+page-section > tag-tag  {
+  display : block;
+  width   : auto;
+}
+
+
+
 
 
 

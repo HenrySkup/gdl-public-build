@@ -24,10 +24,13 @@
 
 
 card-card {
-  --card-gap : var( --space-lg );
+  --card-gap : var( --space-md );
+
+  transition: background-color 0.25s ease-in-out;
 }
+
 card-card::part( header ) {
-  margin-block-end: var( --space-md );
+  margin-block-end: var( --space-xs );
 }
 card-card::part( subtitle ) {
   color       : var(--muted-color);
@@ -37,13 +40,15 @@ card-card::part( subtitle ) {
 card-card::part( content ) {
   color : var(--primary-color);
 }
+card-card[href]:hover {
+  --background-color : var(--super-muted-color);
+}
 card-card dl {
   & dd {
     margin-inline-start: 0;
     font-weight: normal;
   }
 }
-
 card-card > p {
  margin-block : 0.5em;
 }

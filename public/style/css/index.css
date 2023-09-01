@@ -13,6 +13,40 @@
 @import url('./sections/page-blocks.css');
 
 
+/* Fonts */
+@font-face {
+  font-family: 'Yantramanav';
+  src: url('../fonts/Yantramanav/Yantramanav-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Yantramanav';
+  src: url('../fonts/Yantramanav/Yantramanav-Bold.ttf');
+  font-display: block;
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Italic.ttf');
+  font-display: block;
+  font-style: italic;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Bold.ttf');
+  font-display: block;
+  font-weight: bold;
+}
+
 /* CSS VARIABLES */
 :root {
   /* Color Names */
@@ -51,12 +85,12 @@
   /* Universal across site */
   --warning-color     : var(--poppy-red);
 
-  --font-text      : sans-serif;
-  --font-display   : sans-serif;
+  --font-text      : Yantramanav, Helvetica, sans-serif;
+  --font-display   : Poppins, Helvetica, sans-serif;
   --font-mono      : roboto-mono, monospace;
 
   /* Site-wide adjustment of 1rem */
-  --ONE-REM        : 22px;
+  --ONE-REM        : 25px;
   --min-content    : 200px;
   --min-content-px : 200px;
   --min-content-ch : 35ch;

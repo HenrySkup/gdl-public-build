@@ -1,11 +1,11 @@
 side-bar {
-
+  font-family     : var(--font-display);
   & > a {
     display     : block;
 
     font-size   : var(--font-size-lg);
     font-weight : 600;
-    line-height : normal;
+    line-height : 1;
 
     &:not([href]) {
       font-size       : var(--font-size-md);
