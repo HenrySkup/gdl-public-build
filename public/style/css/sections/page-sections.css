@@ -121,8 +121,9 @@ page-section > p:has( img:only-child ) {
 }
 
 page-section > tag-tag  {
-  display : block;
+  display : inline-block;
   width   : auto;
+  
 }
 
 

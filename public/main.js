@@ -740,12 +740,14 @@
       width           : max-content;
       padding         : 0.1em 0.75em;
 
+
       border-width  : 0.1em;
       border-radius : 1.5em;
       border-color  : var(--primary-color);
       border-style  : solid;
 
       font-weight : bolder;
+      text-align  : center;
       
     }
 
