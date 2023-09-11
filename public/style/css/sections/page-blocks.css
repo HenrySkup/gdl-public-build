@@ -14,34 +14,50 @@
   &[size="fw"] { --size : var(--block-fw) }
 }
 
-:is( card-card, tag-tag )::part( title ) {
-  color       : var(--muted-color);
+:is( card-card, tag-tag, figure-figure )::part( title ) {
+  color       : var(--secondary-color);
   font-weight : bold;
+}
+
+:is( card-card, tag-tag )[href] {
+  cursor : pointer;
+}
+
+
+/* FIGURE-FIGURE */
+figure-figure {
+  
+}
+figure-figure::part( figcaption ) {
+  color       : var(--muted-color);
+  font-size   : smaller;
+  line-height : 1.2em;
 }
 
 
 
-
-
+/* CARD-CARD */
 card-card {
-  --card-gap : var( --space-md );
-
-  transition: background-color 0.25s ease-in-out;
+  --card-gap  : var( --space-md );
+  transition  : background-color 0.25s ease-in-out;
 }
 
 card-card::part( header ) {
   margin-block-end: var( --space-xs );
 }
 card-card::part( subtitle ) {
-  color       : var(--muted-color);
+  color       : var( --secondary-color );
   font-size   : smaller;
   font-weight : bold;
 }
 card-card::part( content ) {
   color : var(--primary-color);
 }
+card-card.--invisible::part( content ) {
+  padding: 0;
+}
 card-card[href]:hover {
-  --background-color : var(--super-muted-color);
+  --background-color : var(--secondary-color);
 }
 card-card dl {
   & dd {

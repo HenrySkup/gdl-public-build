@@ -20,13 +20,78 @@
   font-display: block;
   font-weight: normal;
 }
-
 @font-face {
   font-family: 'Yantramanav';
   src: url('../fonts/Yantramanav/Yantramanav-Bold.ttf');
   font-display: block;
   font-weight: bold;
 }
+
+/* @font-face {
+  font-family: 'Eczar';
+  src: url('../fonts/Eczar/static/Eczar-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+} */
+
+@font-face {
+  font-family: 'Libre-Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Libre-Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Italic.ttf');
+  font-display: block;
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Libre-Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf');
+  font-display: block;
+  font-weight: bold;
+}
+
+
+/* @font-face {
+  font-family: 'Linden-Hill';
+  src: url('../fonts/Linden_Hill/LindenHill-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Linden-Hill';
+  src: url('../fonts/Linden_Hill/LindenHill-Italic.ttf');
+  font-display: block;
+  font-weight: normal;
+  font-style: italic;
+} */
+
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf');
+  font-display: block;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/static/Montserrat-Italic.ttf');
+  font-display: block;
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat/static/Montserrat-Light.ttf');
+  font-display: block;
+  font-weight: light;
+}
+
+/* 
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts/Poppins/Poppins-Regular.ttf');
@@ -45,48 +110,77 @@
   src: url('../fonts/Poppins/Poppins-Bold.ttf');
   font-display: block;
   font-weight: bold;
-}
+} */
 
 /* CSS VARIABLES */
 :root {
   /* Color Names */
-  --white       : rgb(250, 250, 250);
-  --black       : #222;
+  /* --white       : rgb(255, 255, 255);
+  --black       : rgb(0, 0, 0); */
 
   --xlight-grey : #e5e5e5;
   --light-grey  : #dddddd;
   --grey        : grey;
   --dark-grey   : #444444;
 
-  --light-brown : rgb(172,153,136);
-  --brown       : #8f7f70;
-  --dark-brown  : rgb(139, 125, 111);
+  --light-brown : rgb(209, 198, 182);
+  --brown       : rgb(117, 98, 57);
+  --dark-brown  : rgb(117, 98, 57);
 
-  --bright-blue : #45acc4;
+  /* Greys */
+  --white       : rgb(255, 255, 255);
+  
+  --xlight-grey : #e5e5e5;
+  --light-grey  : #dddddd;
+  --grey        : grey;
+  --dark-grey   : #444444;
+
+  --black       : rgb(0, 0, 0);
+
+  /* Browns */
+  --sand    : rgb(218,	208,	196	);
+  --khaki   : rgb(136,	117,	73	);
+  /* Greens */
+  --olive   : rgb(104,	102, 47 );
+  --sage    : rgb(157,	178, 163 );
+  /* Blues */
+  --indigo  : #4a6777;
+  --glacier : hsl(202, 22%, 63%);
+  /* Brights */
+  --tumeric : rgb(211,	143, 0 );
+  --saffron :rgb(200, 91, 7);
+
+
+
+  /* --bright-blue : #45acc4;
   --muted-blue  : #4a6777;
   --dark-blue   : #002a46;
 
   --muted-green : #4f6e5d;
-  --poppy-red   : #e05535;
+  --poppy-red   : #e05535; */
+
+
+
 
 
   /* Color, Font Roles */
   /* Used for theming */
-  --primary-color     : var(--dark-blue);
+  --primary-color     : var(--black);
   --secondary-color   : var(--grey);
 
-  --contrast-color    : var(--white);
+  --contrast-color    : var(--khaki);
   --muted-color       : var(--grey);
   --super-muted-color : var(--xlight-grey);
 
-  --background-color  : var(--white);
-  --accent-color      : var(--bright-blue );
+  --background-color  : transparent;
+  --accent-color      : var(--tumeric);
   
   /* Universal across site */
-  --warning-color     : var(--poppy-red);
+  --warning-color     : var(--saffron);
 
-  --font-text      : Yantramanav, Helvetica, sans-serif;
-  --font-display   : Poppins, Helvetica, sans-serif;
+  --font-text      : Yantramanav, sans-serif;
+  --font-header    : Montserrat, sans-serif;
+  --font-display   : Libre-Baskerville, sans-serif;
   --font-mono      : roboto-mono, monospace;
 
   /* Site-wide adjustment of 1rem */
@@ -133,7 +227,8 @@
   --font-size-lg: 1.5rem;
   --font-size-xl: 2.25rem;
 
-  --branding-size : 100px;
+  --branding-size       : 100px;
+  --sidebar-toggle-size : 4rem;
 }
 
 @keyframes ShiftBackground {

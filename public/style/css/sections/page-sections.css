@@ -26,16 +26,16 @@
     /* Default... see above */
   }
   &[size="lg"] {
-    --content-width   : var(--content-lg);
-    --header-width    : var(--content-lg);
+    --content-width : var(--content-lg);
+    --header-width  : var(--content-lg);
   }
   &[size="xl"] {
-    --content-width   : var(--content-xl);
-    --header-width    : var(--content-xl);
+    --content-width : var(--content-xl);
+    --header-width  : var(--content-xl);
   }
   &[size="fw"] {
-    --content-width   : var(--context-fw);
-    --header-width    : var(--content-fw);
+    --content-width : var(--context-fw);
+    --header-width  : var(--content-fw);
   }
 
   /* But if the section has an introduction, make the header the same size as the introduction */
@@ -44,48 +44,58 @@
   }
 }
 
-:is(  page-section, 
-      callout-section, 
-      deck-section, 
-      gallery-section 
-    )::part( header ) {
+:is(  page-section,
+      deck-section 
+    )::part( title ) {
+  color           : var(--secondary-color);
+  font-family     : var(--font-header);
+  font-size       : var(--font-size-lg);
+  font-weight     : 600;
+  line-height     : 1.2em;
+  text-transform  : uppercase;
+
   
 }
 
 :is(  page-section,
-      callout-section, 
       deck-section 
-    )::part( title ) {
-  color           : var(--muted-color);
-  font-family     : var(--font-display);
-  font-size       : var(--font-size-lg);
-  font-weight     : 600;
-  line-height     : 0.9em;
-  text-transform  : uppercase;
-}
+    )::part( title )::before {
+      display             : block;
+      position            : relative;
+      width               : 100%;
+      border-top          : 2px solid var(--secondary-color);
+      content             : '';
+      padding-block-start : var(--space-xs);
+    }
 
 :is(  page-section, 
       callout-section, 
       deck-section, 
       gallery-section 
     )::part( introduction ) {
-  color       : var(--secondary-color);
+  color       : var(--contrast-color);
+  font-family : var(--font-display);
   font-size   : var(--font-size-lg);
   font-weight : 200;
-  line-height : 1.25em;
+  line-height : 1.4em;
 }
 
 :is(  page-section, 
       deck-section, 
-      gallery-section 
     )::part( content ) {
   color : var(--primary-color);
 }
 
+:is( callout-section )::part( content ) {
+  --min-font-size : var(--font-size-lg);
+  font-family     : var(--font-display);
+  font-weight     : 200;
+  line-height     : 1.2em;
+}
 /* Gallery Section */
 gallery-section {
   font-size : var(--font-size-sm);
-  color     : var(--muted-color);
+  color     : var(--secondary-color);
 }
 gallery-section::part( title ) {
   font-weight : 600;
@@ -93,40 +103,60 @@ gallery-section::part( title ) {
 
 /* Deck Section */
 deck-section {
-  --deck-gap  : var(--space-xl);
+  --deck-gap  : var(--space-lg);
 
   & :is( header, hr ) {
-    margin-block-start  : var(--space-lg);
+    margin-block-start  : var(--space-md);
     text-transform      : uppercase;
-    color               : var(--secondary-color);
+    color               : var(--contrast-color);
+
+    font-family : var(--font-header);
+    font-size   : larger;
   }
   & header::before {
-    display             : block;
+    /* display             : block;
     position            : relative;
     width               : 50%;
     border-top          : 2px solid var(--secondary-color);
     content             : '';
-    padding-block-start : var(--space-xs);
+    padding-block-start : var(--space-xs); */
   }
 
 }
 
 /* Page Section */
 page-section > card-card {
-  margin-block : var(--space-xl);
-  --wrapperMaxWidth     : var(--content-width);
+  margin-block : var(--space-md);
+  /* --wrapperMaxWidth     : var(--content-width); */
 }
 page-section > p:has( img:only-child ) {
   margin-block : var(--space-xxl);
 }
 
 page-section > tag-tag  {
-  display : inline-block;
+  /* display : inline-block; */
   width   : auto;
-  
 }
 
+page-section > card-card  {
+  display : inline-block;
+  width   : 100%;
+  margin-inline:auto;
+  justify-self:  center;
+}
+page-section > p:has( figure-figure:only-child )  {
+  margin-block: var(--space-xl);
+}
 
+page-section > figure-figure  {
+  margin-block: var(--space-xl);
+  margin-inline: auto;
+}
+
+page-section > hr {
+  width : 100%;
+  margin-block: var(--space-lg);
+}
 
 
 

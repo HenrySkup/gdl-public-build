@@ -2,36 +2,241 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Godrej Design Lab</title>
-    <link>http://www.godrejdesignlab.com/</link>
+    <link>https://euphonious-zabaione-2cab45.netlify.app/</link>
     <description>Recent content in Home on Godrej Design Lab</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 10 Oct 2022 03:00:00 +0000</lastBuildDate><atom:link href="http://www.godrejdesignlab.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://euphonious-zabaione-2cab45.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hello, World!</title>
-      <link>http://www.godrejdesignlab.com/posts/hello-world/</link>
-      <pubDate>Mon, 10 Oct 2022 03:00:00 +0000</pubDate>
+      <title>3D Printed Table</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.godrejdesignlab.com/posts/hello-world/</guid>
-      <description>Hello World! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lorem diam. Quisque vulputate nibh sodales eros pretium tincidunt. Aenean porttitor efficitur convallis. Nulla sagittis finibus convallis. Phasellus in fermentum quam, eu egestas tortor. Maecenas ac mollis leo. Integer maximus eu nisl vel sagittis.
-Suspendisse facilisis, mi ac scelerisque interdum, ligula ex imperdiet felis, a posuere eros justo nec sem. Nullam laoreet accumsan metus, sit amet tincidunt orci egestas nec.</description>
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aarushi Bafna</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Abhimanyu Nohwar</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>http://www.godrejdesignlab.com/about/</link>
+      <link>https://euphonious-zabaione-2cab45.netlify.app/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.godrejdesignlab.com/about/</guid>
+      <guid>https://euphonious-zabaione-2cab45.netlify.app/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ammar Kalo</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anindya Das Gupta</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ayushi Jain</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aziz Kachwalla</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Baakas Design</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bloon Toys</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chaamar</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cyrus Patell</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deepak Jawahar</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fifth Column</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hardik Gandhi</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hriday Gami</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Janpreet Kaur Dogra</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Karthic Rathinam</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
       <description></description>
     </item>
     
     <item>
       <title>Legal Notices</title>
-      <link>http://www.godrejdesignlab.com/legal/</link>
+      <link>https://euphonious-zabaione-2cab45.netlify.app/legal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.godrejdesignlab.com/legal/</guid>
+      <guid>https://euphonious-zabaione-2cab45.netlify.app/legal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maturing Eco Consciousness</title>
+      <link>https://euphonious-zabaione-2cab45.netlify.app/conscious-living/2023/maturing-eco-consciousness/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://euphonious-zabaione-2cab45.netlify.app/conscious-living/2023/maturing-eco-consciousness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ranjan Bordoloi</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resin Chairs</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Saket Sethi</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spaces Activated</title>
+      <link>https://euphonious-zabaione-2cab45.netlify.app/conscious-living/2023/spaces-activated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://euphonious-zabaione-2cab45.netlify.app/conscious-living/2023/spaces-activated/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Studio Pomegranate</title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Studio Symbiosis </title>
+      <link></link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
       <description></description>
     </item>
     

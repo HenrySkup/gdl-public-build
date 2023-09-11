@@ -9,26 +9,32 @@ body {
   font-size   : var(--font-size-md);
 }
 
-
 p {
   margin-block: 1em;
 }
 
 blockquote { 
-  margin-block  : 3em;
-  font-size     : 1.2em;
+  margin-block  : var(--space-xl);
+  font-family   : var(--font-display);
+  font-size     : var(--font-size-lg);
   font-weight   : lighter;
   font-style    : italic;
+  line-height   : 1.4;
   color         : var(--secondary-color);
 }
 
 hr {
-  margin-block: 5em;
+  margin-block: var(--space-xl);
+
+  border: 0;
+  height: 0;
+  border-top: 1px solid var(--secondary-color);
+  
 }
 
 /* Headings */
 h1 {
-  font-size   : var(--font-size-sm);
+  font-size   : var(--font-size-lg);
   font-weight : 600;
 }
 h2 {
@@ -49,6 +55,7 @@ h6 {
   text-decoration : underline;
 }
 :is(h1, h2, h3, h4, h4, h5, h6) {
+  font-family: var(--font-header);
   margin-block  : 1em;
 }
 
@@ -93,3 +100,6 @@ img {
   grid-row    : span 5;
 }
 
+tag-tag {
+  font-family: var(--font-header);
+}
