@@ -60,13 +60,13 @@
 :is(  page-section,
       deck-section 
     )::part( title )::before {
-      display             : block;
-      position            : relative;
-      width               : 100%;
-      border-top          : 2px solid var(--secondary-color);
-      content             : '';
-      padding-block-start : var(--space-xs);
-    }
+    display             : block;
+    position            : relative;
+    width               : 100%;
+    border-top          : 2px solid var(--secondary-color);
+    content             : '';
+    padding-block-start : var(--space-xs);
+  }
 
 :is(  page-section, 
       callout-section, 
