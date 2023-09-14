@@ -30,7 +30,7 @@
 
 [ theme = "earthy" ] {
   --primary-color     : var(--black);
-  --secondary-color   : var(--grey);
+  --secondary-color   : var(--khaki);
 
   --contrast-color    : var(--white);
   --muted-color       : var(--sand);
@@ -42,7 +42,7 @@
 
 [ theme = "cool" ] {
   --primary-color     : var(--black);
-  --secondary-color   : var(--khaki);
+  --secondary-color   : var(--dark-grey);
 
   --contrast-color    : var(--white);
   --muted-color       : var(--grey);
@@ -62,12 +62,23 @@
   --accent-color      : var(--bright-blue);
 }
 
+[ theme = "black" ] {
+  --primary-color     : var(--white);
+  --secondary-color   : var(--grey);
+
+  --contrast-color    : var(--white);
+  --muted-color       : var(--grey);
+  
+  --background-color  : var(--black);
+  --accent-color      : var(--white);
+}
+
 [ theme = "party" ] {
   --primary-color     : var(--white);
   --secondary-color   : var(--light-grey);
 
   --contrast-color    : var(--black);
-  --muted-color       : var(--light-grey);
+  --muted-color       : var(--grey);
   
   /* --background-color  : var(--white); */
   --accent-color      : var(--bright-blue );

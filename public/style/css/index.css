@@ -34,9 +34,9 @@
   font-weight: normal;
 } */
 
-@font-face {
+/* @font-face {
   font-family: 'Libre-Baskerville';
-  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+  src: url('../fonts/Old_Standard_TT/OldStandardTT-Regular.ttf');
   font-display: block;
   font-weight: normal;
 }
@@ -46,7 +46,7 @@
   font-display: block;
   font-weight: normal;
   font-style: italic;
-}
+} */
 @font-face {
   font-family: 'Libre-Baskerville';
   src: url('../fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf');
@@ -54,22 +54,25 @@
   font-weight: bold;
 }
 
-
-/* @font-face {
-  font-family: 'Linden-Hill';
-  src: url('../fonts/Linden_Hill/LindenHill-Regular.ttf');
+@font-face {
+  font-family: 'Old-Standard-TT';
+  src: url('../fonts/Old_Standard_TT/OldStandardTT-Regular.ttf');
   font-display: block;
   font-weight: normal;
 }
 @font-face {
-  font-family: 'Linden-Hill';
-  src: url('../fonts/Linden_Hill/LindenHill-Italic.ttf');
+  font-family: 'Old-Standard-TT';
+  src: url('../fonts/Old_Standard_TT/OldStandardTT-Italic.ttf');
   font-display: block;
   font-weight: normal;
   font-style: italic;
-} */
-
-
+}
+@font-face {
+  font-family: 'Old-Standard-TT';
+  src: url('../fonts/Old_Standard_TT/OldStandardTT-Bold.ttf');
+  font-display: block;
+  font-weight: bold;
+}
 
 @font-face {
   font-family: 'Montserrat';
@@ -180,7 +183,7 @@
 
   --font-text      : Yantramanav, sans-serif;
   --font-header    : Montserrat, sans-serif;
-  --font-display   : Libre-Baskerville, sans-serif;
+  --font-display   : Old-Standard-TT, sans-serif;
   --font-mono      : roboto-mono, monospace;
 
   /* Site-wide adjustment of 1rem */

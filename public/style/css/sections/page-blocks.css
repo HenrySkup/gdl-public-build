@@ -6,12 +6,12 @@
  */
 
 :is( card-card, tag-tag ) {
-  &[size="sx"] { --size : var(--block-xs) }
-  &[size="sm"] { --size : var(--block-sm) }
-  &[size="md"] { --size : var(--block-md) }
-  &[size="lg"] { --size : var(--block-lg) }
-  &[size="xl"] { --size : var(--block-xl) }
-  &[size="fw"] { --size : var(--block-fw) }
+  &[size="xs"] { --size : var(--content-xs) }
+  &[size="sm"] { --size : var(--content-sm) }
+  &[size="md"] { --size : var(--content-md) }
+  &[size="lg"] { --size : var(--content-lg) }
+  &[size="xl"] { --size : var(--content-xl) }
+  &[size="fw"] { --size : var(--content-fw) }
 }
 
 :is( card-card, tag-tag, figure-figure )::part( title ) {
@@ -53,9 +53,6 @@ card-card::part( subtitle ) {
 card-card::part( content ) {
   color : var(--primary-color);
 }
-card-card.--invisible::part( content ) {
-  padding: 0;
-}
 card-card[href]:hover {
   --background-color : var(--secondary-color);
 }
@@ -67,4 +64,8 @@ card-card dl {
 }
 card-card > p {
  margin-block : 0.5em;
+}
+
+card-card[theme="invisible"]::part(content) {
+  padding: 0;
 }

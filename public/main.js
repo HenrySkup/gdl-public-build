@@ -1,6 +1,6 @@
-(()=>{var M=window,T=M.ShadowRoot&&(M.ShadyCSS===void 0||M.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,B=Symbol(),pt=new WeakMap,k=class{constructor(t,e,i){if(this._$cssResult$=!0,i!==B)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t,this.t=e}get styleSheet(){let t=this.o,e=this.t;if(T&&t===void 0){let i=e!==void 0&&e.length===1;i&&(t=pt.get(e)),t===void 0&&((this.o=t=new CSSStyleSheet).replaceSync(this.cssText),i&&pt.set(e,t))}return t}toString(){return this.cssText}},ht=o=>new k(typeof o=="string"?o:o+"",void 0,B),d=(o,...t)=>{let e=o.length===1?o[0]:t.reduce((i,r,s)=>i+(n=>{if(n._$cssResult$===!0)return n.cssText;if(typeof n=="number")return n;throw Error("Value passed to 'css' function must be a 'css' function result: "+n+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(r)+o[s+1],o[0]);return new k(e,o,B)},I=(o,t)=>{T?o.adoptedStyleSheets=t.map(e=>e instanceof CSSStyleSheet?e:e.styleSheet):t.forEach(e=>{let i=document.createElement("style"),r=M.litNonce;r!==void 0&&i.setAttribute("nonce",r),i.textContent=e.cssText,o.appendChild(i)})},L=T?o=>o:o=>o instanceof CSSStyleSheet?(t=>{let e="";for(let i of t.cssRules)e+=i.cssText;return ht(e)})(o):o;var D,O=window,ut=O.trustedTypes,Nt=ut?ut.emptyScript:"",mt=O.reactiveElementPolyfillSupport,W={toAttribute(o,t){switch(t){case Boolean:o=o?Nt:null;break;case Object:case Array:o=o==null?o:JSON.stringify(o)}return o},fromAttribute(o,t){let e=o;switch(t){case Boolean:e=o!==null;break;case Number:e=o===null?null:Number(o);break;case Object:case Array:try{e=JSON.parse(o)}catch{e=null}}return e}},gt=(o,t)=>t!==o&&(t==t||o==o),V={attribute:!0,type:String,converter:W,reflect:!1,hasChanged:gt},X="finalized",_=class extends HTMLElement{constructor(){super(),this._$Ei=new Map,this.isUpdatePending=!1,this.hasUpdated=!1,this._$El=null,this._$Eu()}static addInitializer(t){var e;this.finalize(),((e=this.h)!==null&&e!==void 0?e:this.h=[]).push(t)}static get observedAttributes(){this.finalize();let t=[];return this.elementProperties.forEach((e,i)=>{let r=this._$Ep(i,e);r!==void 0&&(this._$Ev.set(r,i),t.push(r))}),t}static createProperty(t,e=V){if(e.state&&(e.attribute=!1),this.finalize(),this.elementProperties.set(t,e),!e.noAccessor&&!this.prototype.hasOwnProperty(t)){let i=typeof t=="symbol"?Symbol():"__"+t,r=this.getPropertyDescriptor(t,i,e);r!==void 0&&Object.defineProperty(this.prototype,t,r)}}static getPropertyDescriptor(t,e,i){return{get(){return this[e]},set(r){let s=this[t];this[e]=r,this.requestUpdate(t,s,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)||V}static finalize(){if(this.hasOwnProperty(X))return!1;this[X]=!0;let t=Object.getPrototypeOf(this);if(t.finalize(),t.h!==void 0&&(this.h=[...t.h]),this.elementProperties=new Map(t.elementProperties),this._$Ev=new Map,this.hasOwnProperty("properties")){let e=this.properties,i=[...Object.getOwnPropertyNames(e),...Object.getOwnPropertySymbols(e)];for(let r of i)this.createProperty(r,e[r])}return this.elementStyles=this.finalizeStyles(this.styles),!0}static finalizeStyles(t){let e=[];if(Array.isArray(t)){let i=new Set(t.flat(1/0).reverse());for(let r of i)e.unshift(L(r))}else t!==void 0&&e.push(L(t));return e}static _$Ep(t,e){let i=e.attribute;return i===!1?void 0:typeof i=="string"?i:typeof t=="string"?t.toLowerCase():void 0}_$Eu(){var t;this._$E_=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$Eg(),this.requestUpdate(),(t=this.constructor.h)===null||t===void 0||t.forEach(e=>e(this))}addController(t){var e,i;((e=this._$ES)!==null&&e!==void 0?e:this._$ES=[]).push(t),this.renderRoot!==void 0&&this.isConnected&&((i=t.hostConnected)===null||i===void 0||i.call(t))}removeController(t){var e;(e=this._$ES)===null||e===void 0||e.splice(this._$ES.indexOf(t)>>>0,1)}_$Eg(){this.constructor.elementProperties.forEach((t,e)=>{this.hasOwnProperty(e)&&(this._$Ei.set(e,this[e]),delete this[e])})}createRenderRoot(){var t;let e=(t=this.shadowRoot)!==null&&t!==void 0?t:this.attachShadow(this.constructor.shadowRootOptions);return I(e,this.constructor.elementStyles),e}connectedCallback(){var t;this.renderRoot===void 0&&(this.renderRoot=this.createRenderRoot()),this.enableUpdating(!0),(t=this._$ES)===null||t===void 0||t.forEach(e=>{var i;return(i=e.hostConnected)===null||i===void 0?void 0:i.call(e)})}enableUpdating(t){}disconnectedCallback(){var t;(t=this._$ES)===null||t===void 0||t.forEach(e=>{var i;return(i=e.hostDisconnected)===null||i===void 0?void 0:i.call(e)})}attributeChangedCallback(t,e,i){this._$AK(t,i)}_$EO(t,e,i=V){var r;let s=this.constructor._$Ep(t,i);if(s!==void 0&&i.reflect===!0){let n=(((r=i.converter)===null||r===void 0?void 0:r.toAttribute)!==void 0?i.converter:W).toAttribute(e,i.type);this._$El=t,n==null?this.removeAttribute(s):this.setAttribute(s,n),this._$El=null}}_$AK(t,e){var i;let r=this.constructor,s=r._$Ev.get(t);if(s!==void 0&&this._$El!==s){let n=r.getPropertyOptions(s),c=typeof n.converter=="function"?{fromAttribute:n.converter}:((i=n.converter)===null||i===void 0?void 0:i.fromAttribute)!==void 0?n.converter:W;this._$El=s,this[s]=c.fromAttribute(e,n.type),this._$El=null}}requestUpdate(t,e,i){let r=!0;t!==void 0&&(((i=i||this.constructor.getPropertyOptions(t)).hasChanged||gt)(this[t],e)?(this._$AL.has(t)||this._$AL.set(t,e),i.reflect===!0&&this._$El!==t&&(this._$EC===void 0&&(this._$EC=new Map),this._$EC.set(t,i))):r=!1),!this.isUpdatePending&&r&&(this._$E_=this._$Ej())}async _$Ej(){this.isUpdatePending=!0;try{await this._$E_}catch(e){Promise.reject(e)}let t=this.scheduleUpdate();return t!=null&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){var t;if(!this.isUpdatePending)return;this.hasUpdated,this._$Ei&&(this._$Ei.forEach((r,s)=>this[s]=r),this._$Ei=void 0);let e=!1,i=this._$AL;try{e=this.shouldUpdate(i),e?(this.willUpdate(i),(t=this._$ES)===null||t===void 0||t.forEach(r=>{var s;return(s=r.hostUpdate)===null||s===void 0?void 0:s.call(r)}),this.update(i)):this._$Ek()}catch(r){throw e=!1,this._$Ek(),r}e&&this._$AE(i)}willUpdate(t){}_$AE(t){var e;(e=this._$ES)===null||e===void 0||e.forEach(i=>{var r;return(r=i.hostUpdated)===null||r===void 0?void 0:r.call(i)}),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t)}_$Ek(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$E_}shouldUpdate(t){return!0}update(t){this._$EC!==void 0&&(this._$EC.forEach((e,i)=>this._$EO(i,this[i],e)),this._$EC=void 0),this._$Ek()}updated(t){}firstUpdated(t){}};_[X]=!0,_.elementProperties=new Map,_.elementStyles=[],_.shadowRootOptions={mode:"open"},mt?.({ReactiveElement:_}),((D=O.reactiveElementVersions)!==null&&D!==void 0?D:O.reactiveElementVersions=[]).push("1.6.3");var q,j=window,A=j.trustedTypes,ft=A?A.createPolicy("lit-html",{createHTML:o=>o}):void 0,F="$lit$",w=`lit$${(Math.random()+"").slice(9)}$`,bt="?"+w,Ht=`<${bt}>`,b=document,R=()=>b.createComment(""),P=o=>o===null||typeof o!="object"&&typeof o!="function",St=Array.isArray,Mt=o=>St(o)||typeof o?.[Symbol.iterator]=="function",Y=`[ 	
-\f\r]`,C=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,vt=/-->/g,yt=/>/g,$=RegExp(`>|${Y}(?:([^\\s"'>=/]+)(${Y}*=${Y}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),_t=/'/g,wt=/"/g,At=/^(?:script|style|textarea|title)$/i,zt=o=>(t,...e)=>({_$litType$:o,strings:t,values:e}),p=zt(1),Dt=zt(2),S=Symbol.for("lit-noChange"),h=Symbol.for("lit-nothing"),$t=new WeakMap,x=b.createTreeWalker(b,129,null,!1);function Et(o,t){if(!Array.isArray(o)||!o.hasOwnProperty("raw"))throw Error("invalid template strings array");return ft!==void 0?ft.createHTML(t):t}var Tt=(o,t)=>{let e=o.length-1,i=[],r,s=t===2?"<svg>":"",n=C;for(let c=0;c<e;c++){let a=o[c],l,u,m=-1,f=0;for(;f<a.length&&(n.lastIndex=f,u=n.exec(a),u!==null);)f=n.lastIndex,n===C?u[1]==="!--"?n=vt:u[1]!==void 0?n=yt:u[2]!==void 0?(At.test(u[2])&&(r=RegExp("</"+u[2],"g")),n=$):u[3]!==void 0&&(n=$):n===$?u[0]===">"?(n=r??C,m=-1):u[1]===void 0?m=-2:(m=n.lastIndex-u[2].length,l=u[1],n=u[3]===void 0?$:u[3]==='"'?wt:_t):n===wt||n===_t?n=$:n===vt||n===yt?n=C:(n=$,r=void 0);let y=n===$&&o[c+1].startsWith("/>")?" ":"";s+=n===C?a+Ht:m>=0?(i.push(l),a.slice(0,m)+F+a.slice(m)+w+y):a+w+(m===-2?(i.push(void 0),c):y)}return[Et(o,s+(o[e]||"<?>")+(t===2?"</svg>":"")),i]},U=class o{constructor({strings:t,_$litType$:e},i){let r;this.parts=[];let s=0,n=0,c=t.length-1,a=this.parts,[l,u]=Tt(t,e);if(this.el=o.createElement(l,i),x.currentNode=this.el.content,e===2){let m=this.el.content,f=m.firstChild;f.remove(),m.append(...f.childNodes)}for(;(r=x.nextNode())!==null&&a.length<c;){if(r.nodeType===1){if(r.hasAttributes()){let m=[];for(let f of r.getAttributeNames())if(f.endsWith(F)||f.startsWith(w)){let y=u[n++];if(m.push(f),y!==void 0){let Ut=r.getAttribute(y.toLowerCase()+F).split(w),H=/([.?@])?(.*)/.exec(y);a.push({type:1,index:s,name:H[2],strings:Ut,ctor:H[1]==="."?K:H[1]==="?"?J:H[1]==="@"?Z:E})}else a.push({type:6,index:s})}for(let f of m)r.removeAttribute(f)}if(At.test(r.tagName)){let m=r.textContent.split(w),f=m.length-1;if(f>0){r.textContent=A?A.emptyScript:"";for(let y=0;y<f;y++)r.append(m[y],R()),x.nextNode(),a.push({type:2,index:++s});r.append(m[f],R())}}}else if(r.nodeType===8)if(r.data===bt)a.push({type:2,index:s});else{let m=-1;for(;(m=r.data.indexOf(w,m+1))!==-1;)a.push({type:7,index:s}),m+=w.length-1}s++}}static createElement(t,e){let i=b.createElement("template");return i.innerHTML=t,i}};function z(o,t,e=o,i){var r,s,n,c;if(t===S)return t;let a=i!==void 0?(r=e._$Co)===null||r===void 0?void 0:r[i]:e._$Cl,l=P(t)?void 0:t._$litDirective$;return a?.constructor!==l&&((s=a?._$AO)===null||s===void 0||s.call(a,!1),l===void 0?a=void 0:(a=new l(o),a._$AT(o,e,i)),i!==void 0?((n=(c=e)._$Co)!==null&&n!==void 0?n:c._$Co=[])[i]=a:e._$Cl=a),a!==void 0&&(t=z(o,a._$AS(o,t.values),a,i)),t}var G=class{constructor(t,e){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=e}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){var e;let{el:{content:i},parts:r}=this._$AD,s=((e=t?.creationScope)!==null&&e!==void 0?e:b).importNode(i,!0);x.currentNode=s;let n=x.nextNode(),c=0,a=0,l=r[0];for(;l!==void 0;){if(c===l.index){let u;l.type===2?u=new N(n,n.nextSibling,this,t):l.type===1?u=new l.ctor(n,l.name,l.strings,this,t):l.type===6&&(u=new Q(n,this,t)),this._$AV.push(u),l=r[++a]}c!==l?.index&&(n=x.nextNode(),c++)}return x.currentNode=b,s}v(t){let e=0;for(let i of this._$AV)i!==void 0&&(i.strings!==void 0?(i._$AI(t,i,e),e+=i.strings.length-2):i._$AI(t[e])),e++}},N=class o{constructor(t,e,i,r){var s;this.type=2,this._$AH=h,this._$AN=void 0,this._$AA=t,this._$AB=e,this._$AM=i,this.options=r,this._$Cp=(s=r?.isConnected)===null||s===void 0||s}get _$AU(){var t,e;return(e=(t=this._$AM)===null||t===void 0?void 0:t._$AU)!==null&&e!==void 0?e:this._$Cp}get parentNode(){let t=this._$AA.parentNode,e=this._$AM;return e!==void 0&&t?.nodeType===11&&(t=e.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,e=this){t=z(this,t,e),P(t)?t===h||t==null||t===""?(this._$AH!==h&&this._$AR(),this._$AH=h):t!==this._$AH&&t!==S&&this._(t):t._$litType$!==void 0?this.g(t):t.nodeType!==void 0?this.$(t):Mt(t)?this.T(t):this._(t)}k(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}$(t){this._$AH!==t&&(this._$AR(),this._$AH=this.k(t))}_(t){this._$AH!==h&&P(this._$AH)?this._$AA.nextSibling.data=t:this.$(b.createTextNode(t)),this._$AH=t}g(t){var e;let{values:i,_$litType$:r}=t,s=typeof r=="number"?this._$AC(t):(r.el===void 0&&(r.el=U.createElement(Et(r.h,r.h[0]),this.options)),r);if(((e=this._$AH)===null||e===void 0?void 0:e._$AD)===s)this._$AH.v(i);else{let n=new G(s,this),c=n.u(this.options);n.v(i),this.$(c),this._$AH=n}}_$AC(t){let e=$t.get(t.strings);return e===void 0&&$t.set(t.strings,e=new U(t)),e}T(t){St(this._$AH)||(this._$AH=[],this._$AR());let e=this._$AH,i,r=0;for(let s of t)r===e.length?e.push(i=new o(this.k(R()),this.k(R()),this,this.options)):i=e[r],i._$AI(s),r++;r<e.length&&(this._$AR(i&&i._$AB.nextSibling,r),e.length=r)}_$AR(t=this._$AA.nextSibling,e){var i;for((i=this._$AP)===null||i===void 0||i.call(this,!1,!0,e);t&&t!==this._$AB;){let r=t.nextSibling;t.remove(),t=r}}setConnected(t){var e;this._$AM===void 0&&(this._$Cp=t,(e=this._$AP)===null||e===void 0||e.call(this,t))}},E=class{constructor(t,e,i,r,s){this.type=1,this._$AH=h,this._$AN=void 0,this.element=t,this.name=e,this._$AM=r,this.options=s,i.length>2||i[0]!==""||i[1]!==""?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=h}get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}_$AI(t,e=this,i,r){let s=this.strings,n=!1;if(s===void 0)t=z(this,t,e,0),n=!P(t)||t!==this._$AH&&t!==S,n&&(this._$AH=t);else{let c=t,a,l;for(t=s[0],a=0;a<s.length-1;a++)l=z(this,c[i+a],e,a),l===S&&(l=this._$AH[a]),n||(n=!P(l)||l!==this._$AH[a]),l===h?t=h:t!==h&&(t+=(l??"")+s[a+1]),this._$AH[a]=l}n&&!r&&this.j(t)}j(t){t===h?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}},K=class extends E{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===h?void 0:t}},Lt=A?A.emptyScript:"",J=class extends E{constructor(){super(...arguments),this.type=4}j(t){t&&t!==h?this.element.setAttribute(this.name,Lt):this.element.removeAttribute(this.name)}},Z=class extends E{constructor(t,e,i,r,s){super(t,e,i,r,s),this.type=5}_$AI(t,e=this){var i;if((t=(i=z(this,t,e,0))!==null&&i!==void 0?i:h)===S)return;let r=this._$AH,s=t===h&&r!==h||t.capture!==r.capture||t.once!==r.once||t.passive!==r.passive,n=t!==h&&(r===h||s);s&&this.element.removeEventListener(this.name,this,r),n&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){var e,i;typeof this._$AH=="function"?this._$AH.call((i=(e=this.options)===null||e===void 0?void 0:e.host)!==null&&i!==void 0?i:this.element,t):this._$AH.handleEvent(t)}},Q=class{constructor(t,e,i){this.element=t,this.type=6,this._$AN=void 0,this._$AM=e,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(t){z(this,t)}};var xt=j.litHtmlPolyfillSupport;xt?.(U,N),((q=j.litHtmlVersions)!==null&&q!==void 0?q:j.litHtmlVersions=[]).push("2.8.0");var kt=(o,t,e)=>{var i,r;let s=(i=e?.renderBefore)!==null&&i!==void 0?i:t,n=s._$litPart$;if(n===void 0){let c=(r=e?.renderBefore)!==null&&r!==void 0?r:null;s._$litPart$=n=new N(t.insertBefore(R(),c),c,void 0,e??{})}return n._$AI(o),n};var tt,et;var g=class extends _{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){var t,e;let i=super.createRenderRoot();return(t=(e=this.renderOptions).renderBefore)!==null&&t!==void 0||(e.renderBefore=i.firstChild),i}update(t){let e=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=kt(e,this.renderRoot,this.renderOptions)}connectedCallback(){var t;super.connectedCallback(),(t=this._$Do)===null||t===void 0||t.setConnected(!0)}disconnectedCallback(){var t;super.disconnectedCallback(),(t=this._$Do)===null||t===void 0||t.setConnected(!1)}render(){return S}};g.finalized=!0,g._$litElement$=!0,(tt=globalThis.litElementHydrateSupport)===null||tt===void 0||tt.call(globalThis,{LitElement:g});var Ct=globalThis.litElementPolyfillSupport;Ct?.({LitElement:g});((et=globalThis.litElementVersions)!==null&&et!==void 0?et:globalThis.litElementVersions=[]).push("3.3.3");var it=class extends g{static properties={open:{type:Boolean,reflect:!0}};static styles=d`
+(()=>{var M=window,O=M.ShadowRoot&&(M.ShadyCSS===void 0||M.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,B=Symbol(),ht=new WeakMap,C=class{constructor(t,e,i){if(this._$cssResult$=!0,i!==B)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t,this.t=e}get styleSheet(){let t=this.o,e=this.t;if(O&&t===void 0){let i=e!==void 0&&e.length===1;i&&(t=ht.get(e)),t===void 0&&((this.o=t=new CSSStyleSheet).replaceSync(this.cssText),i&&ht.set(e,t))}return t}toString(){return this.cssText}},pt=s=>new C(typeof s=="string"?s:s+"",void 0,B),c=(s,...t)=>{let e=s.length===1?s[0]:t.reduce((i,r,o)=>i+(n=>{if(n._$cssResult$===!0)return n.cssText;if(typeof n=="number")return n;throw Error("Value passed to 'css' function must be a 'css' function result: "+n+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(r)+s[o+1],s[0]);return new C(e,s,B)},I=(s,t)=>{O?s.adoptedStyleSheets=t.map(e=>e instanceof CSSStyleSheet?e:e.styleSheet):t.forEach(e=>{let i=document.createElement("style"),r=M.litNonce;r!==void 0&&i.setAttribute("nonce",r),i.textContent=e.cssText,s.appendChild(i)})},T=O?s=>s:s=>s instanceof CSSStyleSheet?(t=>{let e="";for(let i of t.cssRules)e+=i.cssText;return pt(e)})(s):s;var W,j=window,ut=j.trustedTypes,Ut=ut?ut.emptyScript:"",mt=j.reactiveElementPolyfillSupport,V={toAttribute(s,t){switch(t){case Boolean:s=s?Ut:null;break;case Object:case Array:s=s==null?s:JSON.stringify(s)}return s},fromAttribute(s,t){let e=s;switch(t){case Boolean:e=s!==null;break;case Number:e=s===null?null:Number(s);break;case Object:case Array:try{e=JSON.parse(s)}catch{e=null}}return e}},gt=(s,t)=>t!==s&&(t==t||s==s),D={attribute:!0,type:String,converter:V,reflect:!1,hasChanged:gt},q="finalized",_=class extends HTMLElement{constructor(){super(),this._$Ei=new Map,this.isUpdatePending=!1,this.hasUpdated=!1,this._$El=null,this._$Eu()}static addInitializer(t){var e;this.finalize(),((e=this.h)!==null&&e!==void 0?e:this.h=[]).push(t)}static get observedAttributes(){this.finalize();let t=[];return this.elementProperties.forEach((e,i)=>{let r=this._$Ep(i,e);r!==void 0&&(this._$Ev.set(r,i),t.push(r))}),t}static createProperty(t,e=D){if(e.state&&(e.attribute=!1),this.finalize(),this.elementProperties.set(t,e),!e.noAccessor&&!this.prototype.hasOwnProperty(t)){let i=typeof t=="symbol"?Symbol():"__"+t,r=this.getPropertyDescriptor(t,i,e);r!==void 0&&Object.defineProperty(this.prototype,t,r)}}static getPropertyDescriptor(t,e,i){return{get(){return this[e]},set(r){let o=this[t];this[e]=r,this.requestUpdate(t,o,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)||D}static finalize(){if(this.hasOwnProperty(q))return!1;this[q]=!0;let t=Object.getPrototypeOf(this);if(t.finalize(),t.h!==void 0&&(this.h=[...t.h]),this.elementProperties=new Map(t.elementProperties),this._$Ev=new Map,this.hasOwnProperty("properties")){let e=this.properties,i=[...Object.getOwnPropertyNames(e),...Object.getOwnPropertySymbols(e)];for(let r of i)this.createProperty(r,e[r])}return this.elementStyles=this.finalizeStyles(this.styles),!0}static finalizeStyles(t){let e=[];if(Array.isArray(t)){let i=new Set(t.flat(1/0).reverse());for(let r of i)e.unshift(T(r))}else t!==void 0&&e.push(T(t));return e}static _$Ep(t,e){let i=e.attribute;return i===!1?void 0:typeof i=="string"?i:typeof t=="string"?t.toLowerCase():void 0}_$Eu(){var t;this._$E_=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$Eg(),this.requestUpdate(),(t=this.constructor.h)===null||t===void 0||t.forEach(e=>e(this))}addController(t){var e,i;((e=this._$ES)!==null&&e!==void 0?e:this._$ES=[]).push(t),this.renderRoot!==void 0&&this.isConnected&&((i=t.hostConnected)===null||i===void 0||i.call(t))}removeController(t){var e;(e=this._$ES)===null||e===void 0||e.splice(this._$ES.indexOf(t)>>>0,1)}_$Eg(){this.constructor.elementProperties.forEach((t,e)=>{this.hasOwnProperty(e)&&(this._$Ei.set(e,this[e]),delete this[e])})}createRenderRoot(){var t;let e=(t=this.shadowRoot)!==null&&t!==void 0?t:this.attachShadow(this.constructor.shadowRootOptions);return I(e,this.constructor.elementStyles),e}connectedCallback(){var t;this.renderRoot===void 0&&(this.renderRoot=this.createRenderRoot()),this.enableUpdating(!0),(t=this._$ES)===null||t===void 0||t.forEach(e=>{var i;return(i=e.hostConnected)===null||i===void 0?void 0:i.call(e)})}enableUpdating(t){}disconnectedCallback(){var t;(t=this._$ES)===null||t===void 0||t.forEach(e=>{var i;return(i=e.hostDisconnected)===null||i===void 0?void 0:i.call(e)})}attributeChangedCallback(t,e,i){this._$AK(t,i)}_$EO(t,e,i=D){var r;let o=this.constructor._$Ep(t,i);if(o!==void 0&&i.reflect===!0){let n=(((r=i.converter)===null||r===void 0?void 0:r.toAttribute)!==void 0?i.converter:V).toAttribute(e,i.type);this._$El=t,n==null?this.removeAttribute(o):this.setAttribute(o,n),this._$El=null}}_$AK(t,e){var i;let r=this.constructor,o=r._$Ev.get(t);if(o!==void 0&&this._$El!==o){let n=r.getPropertyOptions(o),d=typeof n.converter=="function"?{fromAttribute:n.converter}:((i=n.converter)===null||i===void 0?void 0:i.fromAttribute)!==void 0?n.converter:V;this._$El=o,this[o]=d.fromAttribute(e,n.type),this._$El=null}}requestUpdate(t,e,i){let r=!0;t!==void 0&&(((i=i||this.constructor.getPropertyOptions(t)).hasChanged||gt)(this[t],e)?(this._$AL.has(t)||this._$AL.set(t,e),i.reflect===!0&&this._$El!==t&&(this._$EC===void 0&&(this._$EC=new Map),this._$EC.set(t,i))):r=!1),!this.isUpdatePending&&r&&(this._$E_=this._$Ej())}async _$Ej(){this.isUpdatePending=!0;try{await this._$E_}catch(e){Promise.reject(e)}let t=this.scheduleUpdate();return t!=null&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){var t;if(!this.isUpdatePending)return;this.hasUpdated,this._$Ei&&(this._$Ei.forEach((r,o)=>this[o]=r),this._$Ei=void 0);let e=!1,i=this._$AL;try{e=this.shouldUpdate(i),e?(this.willUpdate(i),(t=this._$ES)===null||t===void 0||t.forEach(r=>{var o;return(o=r.hostUpdate)===null||o===void 0?void 0:o.call(r)}),this.update(i)):this._$Ek()}catch(r){throw e=!1,this._$Ek(),r}e&&this._$AE(i)}willUpdate(t){}_$AE(t){var e;(e=this._$ES)===null||e===void 0||e.forEach(i=>{var r;return(r=i.hostUpdated)===null||r===void 0?void 0:r.call(i)}),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t)}_$Ek(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$E_}shouldUpdate(t){return!0}update(t){this._$EC!==void 0&&(this._$EC.forEach((e,i)=>this._$EO(i,this[i],e)),this._$EC=void 0),this._$Ek()}updated(t){}firstUpdated(t){}};_[q]=!0,_.elementProperties=new Map,_.elementStyles=[],_.shadowRootOptions={mode:"open"},mt?.({ReactiveElement:_}),((W=j.reactiveElementVersions)!==null&&W!==void 0?W:j.reactiveElementVersions=[]).push("1.6.3");var X,L=window,z=L.trustedTypes,ft=z?z.createPolicy("lit-html",{createHTML:s=>s}):void 0,F="$lit$",w=`lit$${(Math.random()+"").slice(9)}$`,St="?"+w,Nt=`<${St}>`,S=document,R=()=>S.createComment(""),P=s=>s===null||typeof s!="object"&&typeof s!="function",bt=Array.isArray,Mt=s=>bt(s)||typeof s?.[Symbol.iterator]=="function",Y=`[ 	
+\f\r]`,k=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,vt=/-->/g,yt=/>/g,$=RegExp(`>|${Y}(?:([^\\s"'>=/]+)(${Y}*=${Y}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`,"g"),_t=/'/g,wt=/"/g,zt=/^(?:script|style|textarea|title)$/i,At=s=>(t,...e)=>({_$litType$:s,strings:t,values:e}),p=At(1),Wt=At(2),b=Symbol.for("lit-noChange"),m=Symbol.for("lit-nothing"),$t=new WeakMap,x=S.createTreeWalker(S,129,null,!1);function Et(s,t){if(!Array.isArray(s)||!s.hasOwnProperty("raw"))throw Error("invalid template strings array");return ft!==void 0?ft.createHTML(t):t}var Ot=(s,t)=>{let e=s.length-1,i=[],r,o=t===2?"<svg>":"",n=k;for(let d=0;d<e;d++){let a=s[d],l,u,h=-1,f=0;for(;f<a.length&&(n.lastIndex=f,u=n.exec(a),u!==null);)f=n.lastIndex,n===k?u[1]==="!--"?n=vt:u[1]!==void 0?n=yt:u[2]!==void 0?(zt.test(u[2])&&(r=RegExp("</"+u[2],"g")),n=$):u[3]!==void 0&&(n=$):n===$?u[0]===">"?(n=r??k,h=-1):u[1]===void 0?h=-2:(h=n.lastIndex-u[2].length,l=u[1],n=u[3]===void 0?$:u[3]==='"'?wt:_t):n===wt||n===_t?n=$:n===vt||n===yt?n=k:(n=$,r=void 0);let y=n===$&&s[d+1].startsWith("/>")?" ":"";o+=n===k?a+Nt:h>=0?(i.push(l),a.slice(0,h)+F+a.slice(h)+w+y):a+w+(h===-2?(i.push(void 0),d):y)}return[Et(s,o+(s[e]||"<?>")+(t===2?"</svg>":"")),i]},H=class s{constructor({strings:t,_$litType$:e},i){let r;this.parts=[];let o=0,n=0,d=t.length-1,a=this.parts,[l,u]=Ot(t,e);if(this.el=s.createElement(l,i),x.currentNode=this.el.content,e===2){let h=this.el.content,f=h.firstChild;f.remove(),h.append(...f.childNodes)}for(;(r=x.nextNode())!==null&&a.length<d;){if(r.nodeType===1){if(r.hasAttributes()){let h=[];for(let f of r.getAttributeNames())if(f.endsWith(F)||f.startsWith(w)){let y=u[n++];if(h.push(f),y!==void 0){let Ht=r.getAttribute(y.toLowerCase()+F).split(w),N=/([.?@])?(.*)/.exec(y);a.push({type:1,index:o,name:N[2],strings:Ht,ctor:N[1]==="."?K:N[1]==="?"?J:N[1]==="@"?Z:E})}else a.push({type:6,index:o})}for(let f of h)r.removeAttribute(f)}if(zt.test(r.tagName)){let h=r.textContent.split(w),f=h.length-1;if(f>0){r.textContent=z?z.emptyScript:"";for(let y=0;y<f;y++)r.append(h[y],R()),x.nextNode(),a.push({type:2,index:++o});r.append(h[f],R())}}}else if(r.nodeType===8)if(r.data===St)a.push({type:2,index:o});else{let h=-1;for(;(h=r.data.indexOf(w,h+1))!==-1;)a.push({type:7,index:o}),h+=w.length-1}o++}}static createElement(t,e){let i=S.createElement("template");return i.innerHTML=t,i}};function A(s,t,e=s,i){var r,o,n,d;if(t===b)return t;let a=i!==void 0?(r=e._$Co)===null||r===void 0?void 0:r[i]:e._$Cl,l=P(t)?void 0:t._$litDirective$;return a?.constructor!==l&&((o=a?._$AO)===null||o===void 0||o.call(a,!1),l===void 0?a=void 0:(a=new l(s),a._$AT(s,e,i)),i!==void 0?((n=(d=e)._$Co)!==null&&n!==void 0?n:d._$Co=[])[i]=a:e._$Cl=a),a!==void 0&&(t=A(s,a._$AS(s,t.values),a,i)),t}var G=class{constructor(t,e){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=e}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){var e;let{el:{content:i},parts:r}=this._$AD,o=((e=t?.creationScope)!==null&&e!==void 0?e:S).importNode(i,!0);x.currentNode=o;let n=x.nextNode(),d=0,a=0,l=r[0];for(;l!==void 0;){if(d===l.index){let u;l.type===2?u=new U(n,n.nextSibling,this,t):l.type===1?u=new l.ctor(n,l.name,l.strings,this,t):l.type===6&&(u=new Q(n,this,t)),this._$AV.push(u),l=r[++a]}d!==l?.index&&(n=x.nextNode(),d++)}return x.currentNode=S,o}v(t){let e=0;for(let i of this._$AV)i!==void 0&&(i.strings!==void 0?(i._$AI(t,i,e),e+=i.strings.length-2):i._$AI(t[e])),e++}},U=class s{constructor(t,e,i,r){var o;this.type=2,this._$AH=m,this._$AN=void 0,this._$AA=t,this._$AB=e,this._$AM=i,this.options=r,this._$Cp=(o=r?.isConnected)===null||o===void 0||o}get _$AU(){var t,e;return(e=(t=this._$AM)===null||t===void 0?void 0:t._$AU)!==null&&e!==void 0?e:this._$Cp}get parentNode(){let t=this._$AA.parentNode,e=this._$AM;return e!==void 0&&t?.nodeType===11&&(t=e.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,e=this){t=A(this,t,e),P(t)?t===m||t==null||t===""?(this._$AH!==m&&this._$AR(),this._$AH=m):t!==this._$AH&&t!==b&&this._(t):t._$litType$!==void 0?this.g(t):t.nodeType!==void 0?this.$(t):Mt(t)?this.T(t):this._(t)}k(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}$(t){this._$AH!==t&&(this._$AR(),this._$AH=this.k(t))}_(t){this._$AH!==m&&P(this._$AH)?this._$AA.nextSibling.data=t:this.$(S.createTextNode(t)),this._$AH=t}g(t){var e;let{values:i,_$litType$:r}=t,o=typeof r=="number"?this._$AC(t):(r.el===void 0&&(r.el=H.createElement(Et(r.h,r.h[0]),this.options)),r);if(((e=this._$AH)===null||e===void 0?void 0:e._$AD)===o)this._$AH.v(i);else{let n=new G(o,this),d=n.u(this.options);n.v(i),this.$(d),this._$AH=n}}_$AC(t){let e=$t.get(t.strings);return e===void 0&&$t.set(t.strings,e=new H(t)),e}T(t){bt(this._$AH)||(this._$AH=[],this._$AR());let e=this._$AH,i,r=0;for(let o of t)r===e.length?e.push(i=new s(this.k(R()),this.k(R()),this,this.options)):i=e[r],i._$AI(o),r++;r<e.length&&(this._$AR(i&&i._$AB.nextSibling,r),e.length=r)}_$AR(t=this._$AA.nextSibling,e){var i;for((i=this._$AP)===null||i===void 0||i.call(this,!1,!0,e);t&&t!==this._$AB;){let r=t.nextSibling;t.remove(),t=r}}setConnected(t){var e;this._$AM===void 0&&(this._$Cp=t,(e=this._$AP)===null||e===void 0||e.call(this,t))}},E=class{constructor(t,e,i,r,o){this.type=1,this._$AH=m,this._$AN=void 0,this.element=t,this.name=e,this._$AM=r,this.options=o,i.length>2||i[0]!==""||i[1]!==""?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=m}get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}_$AI(t,e=this,i,r){let o=this.strings,n=!1;if(o===void 0)t=A(this,t,e,0),n=!P(t)||t!==this._$AH&&t!==b,n&&(this._$AH=t);else{let d=t,a,l;for(t=o[0],a=0;a<o.length-1;a++)l=A(this,d[i+a],e,a),l===b&&(l=this._$AH[a]),n||(n=!P(l)||l!==this._$AH[a]),l===m?t=m:t!==m&&(t+=(l??"")+o[a+1]),this._$AH[a]=l}n&&!r&&this.j(t)}j(t){t===m?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}},K=class extends E{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===m?void 0:t}},Tt=z?z.emptyScript:"",J=class extends E{constructor(){super(...arguments),this.type=4}j(t){t&&t!==m?this.element.setAttribute(this.name,Tt):this.element.removeAttribute(this.name)}},Z=class extends E{constructor(t,e,i,r,o){super(t,e,i,r,o),this.type=5}_$AI(t,e=this){var i;if((t=(i=A(this,t,e,0))!==null&&i!==void 0?i:m)===b)return;let r=this._$AH,o=t===m&&r!==m||t.capture!==r.capture||t.once!==r.once||t.passive!==r.passive,n=t!==m&&(r===m||o);o&&this.element.removeEventListener(this.name,this,r),n&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){var e,i;typeof this._$AH=="function"?this._$AH.call((i=(e=this.options)===null||e===void 0?void 0:e.host)!==null&&i!==void 0?i:this.element,t):this._$AH.handleEvent(t)}},Q=class{constructor(t,e,i){this.element=t,this.type=6,this._$AN=void 0,this._$AM=e,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(t){A(this,t)}};var xt=L.litHtmlPolyfillSupport;xt?.(H,U),((X=L.litHtmlVersions)!==null&&X!==void 0?X:L.litHtmlVersions=[]).push("2.8.0");var Ct=(s,t,e)=>{var i,r;let o=(i=e?.renderBefore)!==null&&i!==void 0?i:t,n=o._$litPart$;if(n===void 0){let d=(r=e?.renderBefore)!==null&&r!==void 0?r:null;o._$litPart$=n=new U(t.insertBefore(R(),d),d,void 0,e??{})}return n._$AI(s),n};var tt,et;var g=class extends _{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){var t,e;let i=super.createRenderRoot();return(t=(e=this.renderOptions).renderBefore)!==null&&t!==void 0||(e.renderBefore=i.firstChild),i}update(t){let e=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=Ct(e,this.renderRoot,this.renderOptions)}connectedCallback(){var t;super.connectedCallback(),(t=this._$Do)===null||t===void 0||t.setConnected(!0)}disconnectedCallback(){var t;super.disconnectedCallback(),(t=this._$Do)===null||t===void 0||t.setConnected(!1)}render(){return b}};g.finalized=!0,g._$litElement$=!0,(tt=globalThis.litElementHydrateSupport)===null||tt===void 0||tt.call(globalThis,{LitElement:g});var kt=globalThis.litElementPolyfillSupport;kt?.({LitElement:g});((et=globalThis.litElementVersions)!==null&&et!==void 0?et:globalThis.litElementVersions=[]).push("3.3.3");var it=class extends g{static properties={open:{type:Boolean,reflect:!0}};static styles=c`
     :host {
       /* --primary-color     : var(--accent-color);
       --background-color  : var(--grey);
@@ -83,7 +83,7 @@
           <slot name="footer"></slot>    
         </footer>
       </menu> 
-    `}toggle(){this.open=!this.open}};customElements.define("side-bar",it);var v=class extends g{static properties={layout:{type:String},size:{type:String},_contentRegistry:{type:Object,state:!0}};static styles=d`
+    `}toggle(){this.open=!this.open}};customElements.define("side-bar",it);var v=class extends g{static properties={layout:{type:String},size:{type:String},_contentRegistry:{type:Object,state:!0}};static styles=c`
     :host {
       --header-width        : 100%;
       --introduction-width  : 100%;
@@ -119,6 +119,10 @@
       flex-direction  : column;
       justify-items   : flex-start;
       gap             : var(--space-sm);
+
+      &[hidden] {
+        display : none;
+      }
     }
     [part="title"] {
       width         : 100%;
@@ -156,7 +160,7 @@
     [part="content"] ::slotted( card-card ) {
       /* --wrapperMaxWidth : var(--content-width); */
     }
-  `;constructor(){super(),this.layout=void 0,this.size=void 0,this._contentRegistry={title:!1,subtitle:!1,introduction:!1,content:!1}}render(){return console.log(this._contentRegistry),p`
+  `;constructor(){super(),this.layout=void 0,this.size=void 0,this._contentRegistry={title:!1,subtitle:!1,introduction:!1,content:!1}}render(){return p`
       <header 
         part="header"
         @slotchange = ${this.registerContent}
@@ -175,7 +179,7 @@
 
       <div part="content"><slot></slot></div>
 
-    `}registerContent(t){t.target.assignedNodes()&&(this._contentRegistry[t.target.name]=!0,this._contentRegistry={...this._contentRegistry})}};customElements.define("page-section",v);var rt=class extends v{static styles=[v.styles,d`
+    `}registerContent(t){t.target.assignedNodes()&&(this._contentRegistry[t.target.name]=!0,this._contentRegistry={...this._contentRegistry})}};customElements.define("page-section",v);var rt=class extends v{static styles=[v.styles,c`
       :host {
         display         : flex;
         flex-direction  : row;
@@ -202,9 +206,8 @@
         <div part = "imprint">
           <slot name="imprint"></slot>
         </div>
-    `}};customElements.define("site-footer",rt);var ot=class extends g{static properties={title:{type:String},backgroundMedia:{type:String},backgroundPlaceholder:{type:String},loaded:{type:Boolean,reflect:!0}};static styles=d`
+    `}};customElements.define("site-footer",rt);var st=class extends g{static properties={title:{type:String},src:{type:String},placeholder:{type:String},loaded:{type:Boolean,reflect:!0},_contentRegistry:{type:Object},_fontSize:{type:Number}};static styles=c`
     :host {
-
       --min-font-size : 1em;
       --background-opacity : 0.5;
       --background-color  : var(--background-color);
@@ -219,12 +222,10 @@
       justify-content : center;
       align-items     : center;
       gap             : 1em;
-  
       background-color : var(--background-color);
-
-     
-
       container : callout/ size;
+
+      font-size : 1rem;
     }
 
     :host([loaded]) {
@@ -232,26 +233,34 @@
     }
 
     [part="content"] {
+      box-sizing : border-box;
       position      : absolute;
       z-index       : 1000;
       display       : flex;
       align-items   : center;
       /* width : max-content; */
-      width         : 100%;
+      /* width         : 100%;
       height        : 100%;
       max-width     : 90vw;
+      max-height    : 80vh; */
+      height        : 100%;
+      max-height    : 70vh;
+      padding       : 5vw;
       margin-inline : auto;
-
+      font-size     : inherit;
+      line-height   : 0.9em;
 
       /* Use Viewport units for a more responsive text size */
-      font-size : min(var(--min-font-size), 10vh); 
-      line-height   : 1em;
-      color         : var(--primary-color);
+      /* font-size : min(var(--min-font-size), 10vh);*/
+
+      & div {
+        display       : flex;
+        height : min-content;
+      }
     }
 
     [part="background"] {
       position    : absolute;
-    
       width       : 100%;
       height      : 100%;
       overflow    : hidden;
@@ -279,7 +288,7 @@
       height      : 100%;
     } */
 
-    @container callout ( orientation: landscape  ) {
+    /* @container callout ( orientation: landscape  ) {
       [part="content"] {
         font-size : min(6vw, 10vh); 
       }
@@ -288,20 +297,26 @@
       [part="content"] {
         font-size : max(8vw, var(--min-font-size)); 
       }
-    }
-  `;constructor(){super(),this.title=void 0,this.backgroundMedia=void 0,this.backgroundPlaceholder=void 0,this.loaded=!1}connectedCallback(){super.connectedCallback()}render(){let t=this.backgroundPlaceholder;return p`
-      
-
+    } */
+  `;constructor(){super(),this.src=void 0,this.placeholder=void 0,this.loaded=!1,this._contentRegistry={content:!1},this._fontSize=1,this._maxFontSize=10,this._resizeThreshold=.1,this._resizeHistory=[1,1.1,1.2,1.3,1.4,1.5]}firstUpdated(){let t=this.renderRoot.querySelector('[part="content"]');new ResizeObserver(this._handleResize.bind(this)).observe(t),this._fontSize=Math.round(t.getBoundingClientRect().width/30)/10}updated(){this._handleResize()}render(){return p`
       <picture 
         part="background"
-        style="background-image : url(${t})">
-        <img  src     = ${this.backgroundMedia} 
+        style="
+          background-image      : url(${this.placeholder});
+          --background-opacity  : ${this._contentRegistry.content?.5:1}
+        ">
+        <img  src     = ${this.src} 
               loading = 'lazy'
               @load   = ${()=>{this.loaded=!0}}>
       </picture>
 
-      <div part="content"><slot></slot></div>
-    `}};customElements.define("callout-section",ot);var nt=class extends v{static properties={size:{type:String,reflect:!0},layout:{type:String,reflect:!0},_contentRegistry:{type:Object}};static styles=[v.styles,d`
+      <div 
+        part        = "content"
+        @slotchange = ${this._registerContent}
+        style       = "font-size : ${this._fontSize}rem"
+        >
+        <div><slot></slot></div></div>
+    `}_registerContent(t){let e=t.target.assignedNodes().some(i=>!i.textContent.match(/\w/));this._contentRegistry[t.target.name||"content"]=!e,this._contentRegistry={...this._contentRegistry}}_handleResize(t){let e=this.renderRoot.querySelector('[part="content"]'),i=window.getComputedStyle(e),r=[i.paddingBlockStart,i.paddingInlineEnd,i.paddingBlockEnd,i.paddingInlineStart].map(h=>Number(h.replace("px",""))),o=Math.round(e.clientWidth-r[1]-r[3]),n=Math.round(e.clientHeight-r[0]-r[2]),d=this.renderRoot.querySelector('[part="content"] div'),a=()=>d.clientWidth*d.clientHeight,l=()=>o*n;Math.abs(a()-l())/l()>this._resizeThreshold&&this._resizeHistory[0]!=this._resizeHistory[2]&&this._resizeHistory[0]!=this._resizeHistory[4]&&this._resizeHistory[1]!=this._resizeHistory[3]&&this._resizeHistory[1]!=this._resizeHistory[5]&&(d.clientWidth-1>o||d.clientHeight-1>n?this._fontSize=this._fontSize-.01:(d.clientWidth-1<o||d.clientHeight-1<n)&&(this._fontSize=this._fontSize+.01)),this._resizeHistory.unshift(this._fontSize),this._resizeHistory.length=6}};customElements.define("callout-section",st);var nt=class extends v{static properties={size:{type:String,reflect:!0},layout:{type:String,reflect:!0},_contentRegistry:{type:Object}};static styles=[v.styles,c`
       :host {
         --layout    : row;
         --wrap      : nowrap;
@@ -329,13 +344,25 @@
         margin-inline : auto;
       }
 
-      :host([layout="row"]){
+      :host([layout="row"]) [part="content"] {
         --layout    : row; 
-        --wrap      : wrap;    
+        --wrap      : wrap;   
+        
+        --minCellSize   : 250; // px
+        --grid-columns  : calc( 200 / var( --minCellSize ) );
+
+        display         : grid;   
+        grid-auto-flow        : row;
+        grid-template-columns : repeat( auto-fill, 
+                                        minmax( 
+                                          calc( var( --minCellSize ) * 1px ),
+                                          1fr 
+                                        ) 
+                                      );
       }
 
-      :host([layout="row"]) ::slotted( card-card ) {
-        --wrapperMaxWidth : none;
+      :host([layout="row"]) ::slotted( header ) {
+        grid-column : 1 / -1;
       }
 
       :host([layout="grid"]) [part="content"] {
@@ -416,7 +443,8 @@
         
         /* align-items     : center; */
       }
-      [part="content"].--tag-list {
+      :host(*) [part="content"].--tag-list {
+        display : flex;
         flex-direction : row;
         gap :var(--space-md);
         justify-content : center;
@@ -490,16 +518,16 @@
       <div  
         part="content"
         class= "
-          ${this._contentRegistry.content.size==1&&this._contentRegistry.content.has("TAG-TAG")?"--tag-list":h}
+          ${this._contentRegistry.content.size==1&&this._contentRegistry.content.has("TAG-TAG")?"--tag-list":m}
         ">
         <slot @slotchange=${this._registerCards}></slot>
       </div>
 
-    `}_registerContent(t){t.target.assignedNodes()&&(this._contentRegistry[t.target.name]=!0),this._contentRegistry={...this._contentRegistry}}_registerCards(t){let e=new Set(this._contentRegistry.content);t.target.assignedNodes().filter(i=>i.tagName!=null).forEach(i=>e.add(i.tagName)),this._contentRegistry.content=e,this._contentRegistry={...this._contentRegistry}}};customElements.define("deck-section",nt);var me=d`
+    `}_registerContent(t){t.target.assignedNodes()&&(this._contentRegistry[t.target.name]=!0),this._contentRegistry={...this._contentRegistry}}_registerCards(t){let e=new Set(this._contentRegistry.content);t.target.assignedNodes().filter(i=>i.tagName!=null).forEach(i=>e.add(i.tagName)),this._contentRegistry.content=e,this._contentRegistry={...this._contentRegistry}}};customElements.define("deck-section",nt);var me=c`
   :host([hidden]) {
     display : none;
   }
-`,Rt=d`
+`,Rt=c`
   :host {
     container : grid-width / inline-size;
   }
@@ -589,7 +617,7 @@
 
 
 
-`,Pt=d`
+`,Pt=c`
 
   :host {
     --_areas    : "content media";
@@ -665,7 +693,7 @@
     }
   }
 
-`;var st=class extends v{static properties={size:{type:String,reflect:!0},layout:{type:String,reflect:!0},captionPosition:{type:String,reflect:!0}};static styles=[v.styles,d`
+`;var ot=class extends v{static properties={size:{type:String,reflect:!0},layout:{type:String,reflect:!0},captionPosition:{type:String,reflect:!0}};static styles=[v.styles,c`
       :host {
         --layout        : grid;
         --gallery-gap   : var(--space-sm);
@@ -738,211 +766,7 @@
 
         </div>
       </div>
-    `}};customElements.define("gallery-section",st);var at=class extends g{static properties={size:{type:String,reflect:!0},href:{type:String},target:{type:String,reflect:!0},layout:{type:String,reflect:!0},src:{type:String},placeholder:{type:String},mediaShape:{type:String},loaded:{type:Boolean,reflect:!0}};static styles=d`
-    :host {
-      --size            : var(--block-md);
-      --position        : flex-start;
-      --card-gap        : 0;
-
-      --wrapperMaxWidth : var(--size);
-      --_media-opacity  : 0;
-      --_layout         : "content media";
-   
-
-      flex-basis    : calc( var(--size) - var(--deck-gap));
-      flex-shrink   : 1;
-      min-width   : 250px;
-      container   : card-width / inline-size;
-    }
-
-    :host([href]) {
-      cursor : pointer;
-    }
-    :host([loaded]) {
-      --_media-opacity : 1;
-    }
-
-    :host([layout="row"]) {
-      --_layout : "content media";
-    }
-    :host([layout="row-reverse"]) {
-      --_layout : "media content";
-    }
-    :host([layout="column"]) {
-      --_layout : "content" "media";
-    }
-    :host([layout="column-reverse"]) {
-      --_layout: "media" "content";
-    }
-
-    #grid-wrapper {
-      display             : grid;
-      grid-template-areas : var( --_layout);
-      align-items         : center;
-      gap                 : var(--card-gap);
-      background-color    : var(--background-color);
-      overflow : hidden;
-    }
-
-    [part="content"] {
-      grid-area       : content;
-
-      box-sizing      : border-box;
-      padding         : var(--space-sm);
-      width           : 100%;
-      display         : flex;
-      flex-direction  : column;
-    }
-
-    [part="header"] {
-      display         : flex;
-      flex-direction  : column;
-      justify-items   : flex-start;
-    }
-    [part="title"] {
-    }
-    
-    [part="media"] {
-      grid-area : media;
-   
-      position    : relative;
-      overflow    : hidden;
-      width       : 100%;
-      height      : 100%;
-    }
-
-    [part="media"] picture {
-      width   : 100%;
-      height  : 100%;
-      display : flex;
-      /* Placeholder image related */
-      background-position : 50% 50%;
-      background-repeat   : no-repeat;
-      background-size     : cover;
-    }
-
-    [part="media"] picture img {
-      object-fit  : cover; 
-      height      : auto;
-      width       : 100%;
-      /* Loading related */
-      opacity     : var(--_media-opacity);
-      transition  : opacity 0.5s ease-in;
-    }
-
-    [part="media"] video {
-      object-fit  : cover; 
-      height: 100%;
-      width: 100%;
-    }
-
-    /* Media Shaping */
-    [part="media"] {
-      &.--square {
-        /* aspect-ratio  : 1 / 1; */
-        & picture { 
-          aspect-ratio  : 1 / 1; }
-      }
-      &.--circle {
-      /* aspect-ratio  : 1 / 1; */
-      clip-path     : circle( 50% at center);
-        & picture { aspect-ratio  : 1 / 1;
-        height : 100%; }
-      }
-      &.--brick picture {
-        aspect-ratio  : 2 / 1;
-      }
-      &.--column picture {
-        aspect-ratio  : 1 / 2;
-      }
-    }
- 
-    @container card-width ( max-width: 400px ) {
-      #grid-wrapper {
-        display         : flex;
-        flex-direction  : column-reverse;
-      }
-      /* #wrapper{
-        --position            : center;
-        --layout              : column-reverse;
-        --margin-inline-start : auto;
-        --margin-inline-end   : auto;
-        max-width             : none;
-      } */
-    }
-  `;constructor(){super(),this.size=void 0,this.potion=void 0,this.layout="column",this.relativeFontSize="inherit",this.mediaSrc=void 0,this.mediaPlaceholder=void 0,this.src=void 0,this.placeholder=void 0,this.mediaLayout=void 0,this.mediaShape=void 0,this.loaded=!1,this.href=void 0,this.target="_self"}connectedCallback(){super.connectedCallback(),this.href&&this.addEventListener("click",()=>window.open(this.href,this.target))}render(){return p`
-      <div id="grid-wrapper">
-
-        <div part="content">
-          <header part="header">
-            <div part="title"><slot name="title"></slot></div>
-            <div part="subtitle"><slot name="subtitle"></slot></div>
-          </header>
-          <slot></slot>
-        </div>
-
-        ${this.src?p`
-            <div  part="media" 
-                  class="--${this.mediaShape}">
-              ${this.src.endsWith("webp")?p`
-                  <picture
-                    style="background-image : url('${this.placeholder}')">
-                    <img 
-                      src     = ${this.src}
-                      loading = 'lazy'
-                      @load   = ${()=>{this.loaded=!0}} />
-                  </picture>`:p`
-                  <video autoplay loop muted >
-                    <source src="${this.src}" type="video/mp4" />
-                  </video>`} 
-            </div>`:h}  
-        
-      </div>
-    `}};customElements.define("card-card",at);var lt=class extends g{static properties={size:{type:String,reflect:!0},position:{type:String,reflect:!0},href:{type:String,reflect:!0},target:{type:String}};static styles=d`
-    :host {
-      /* --size        : var(--block-md); */
-      --position    : flex-start;
-      --card-gap    : var(--space-sm);
-      --layout      : column;
-
-      /* --border-color : black;
-      --background-color : transparent; */
-  
-      align-self      : var(--position );
-      display         : inline-flex;
-      justify-content : center;
-      align-items     : center;
-      width           : max-content;
-      padding         : 0.1em 0.75em;
-
-
-      border-width  : 0.1em;
-      border-radius : 1.5em;
-      border-color  : var(--primary-color);
-      border-style  : solid;
-
-      font-weight : bolder;
-      text-align  : center;
-      
-    }
-    :host([position="left"]) {
-      --position  : flex-start;
-    }
-    :host([position="center"]) {
-      --position  : center;
-    }
-    :host([position="right"]) {
-      --position  : flex-end;
-    }
-    :host([href]) {
-      cursor : pointer;
-    }
-    :host([href]:hover) {
-      color             : var( --secondary-color );
-      border-color      : var( --secondary-color );
-      background-color  : var( --primary-color );
-    }
-  `;constructor(){super(),this.href=void 0,this.target="_self",this.size=void 0,this.position=void 0,this.addEventListener("click",()=>window.open(this.href,this.target))}render(){return p`<slot></slot>`}};customElements.define("tag-tag",lt);var dt=class extends g{static properties={src:{type:String},placeholder:{type:String},loading:{type:String},size:{type:String,reflect:!0},shape:{type:String,reflect:!0},loaded:{type:Boolean,reflect:!0}};static styles=[d`
+    `}};customElements.define("gallery-section",ot);var at=class extends g{static properties={src:{type:String},placeholder:{type:String},loading:{type:String},size:{type:String,reflect:!0},shape:{type:String,reflect:!0},loaded:{type:Boolean,reflect:!0}};static styles=[c`
     :host {
       --size            : var(--content-md);
       --_media-opacity  : 0;
@@ -988,16 +812,180 @@
     :host([shape="column"]) [part="picture"] {
       aspect-ratio  : 1 / 2;
     }
-  `];constructor(){super(),this.src=void 0,this.placeholder=void 0,this.loading="lazy",this.size="md",this.shape=void 0,this.loaded=!1}render(){return p`
+  `];constructor(){super(),this.src=void 0,this.placeholder=void 0,this.loading="lazy",this.size="md",this.shape=void 0,this.loaded=!1}render(){let t=["jpg","jpeg","png","webp"].some(e=>this.src.endsWith(e)||this.src.endsWith(e.toUpperCase()))?"image":["mp4"].some(e=>this.src.endsWith(e)||this.src.endsWith(e.toUpperCase()))?"video":void 0;return t=="image"?p`
+        <picture
+          part="picture"
+          style="background-image : url('${this.placeholder}');">
+          <img  src     = ${this.src} 
+                loading = ${this.loading}
+                @load   = ${()=>{this.loaded=!0}}>
+        </picture>`:t=="video"?p`
+        <video
+          part="picture"
+          style="background-image : url('${this.placeholder}');">
+        </video>`:p`<div></div>`}};customElements.define("shaped-media",at);var lt=class extends g{static properties={size:{type:String,reflect:!0},href:{type:String},target:{type:String,reflect:!0},layout:{type:String,reflect:!0},src:{type:String},placeholder:{type:String},mediaShape:{type:String},loaded:{type:Boolean,reflect:!0}};static styles=c`
+    :host {
+      --size            : var(--block-md);
+      --position        : flex-start;
+      --card-gap        : 0;
+      --wrapperMaxWidth : var(--size);
+      --_media-opacity  : 0;
+      --_layout         : "content media";
+      /* flex-basis    : calc( var(--size) - var(--deck-gap));
+      flex-shrink   : 1; */
+      min-width   : 250px;
+      container   : card-width / inline-size;
+    }
+
+    :host([href]) { cursor : pointer; }
+    :host([loaded]) {  --_media-opacity : 1; }
+
+    :host([layout="row"]) { --_layout : "content media"; }
+    :host([layout="row-reverse"]) { --_layout : "media content"; }
+    :host([layout="column"]) {  --_layout : "content" "media"; }
+    :host([layout="column-reverse"]) {  --_layout: "media" "content"; }
+
+    #grid-wrapper {
+      display             : grid;
+      grid-template-areas : var( --_layout);
+      align-items         : center;
+      gap                 : var(--card-gap);
+      background-color    : var(--background-color);
+      overflow : hidden;
+    }
+
+    [part="content"] {
+      grid-area       : content;
+
+      box-sizing      : border-box;
+      padding         : var(--space-sm);
+      width           : 100%;
+      display         : flex;
+      flex-direction  : column;
+    }
+
+    [part="header"] {
+      display         : flex;
+      flex-direction  : column;
+      justify-items   : flex-start;
+    }
+    [part="title"] {
+    }
+    
+    [part="media"] {
+      grid-area : media;
+   
+      position    : relative;
+      overflow    : hidden;
+      width       : 100%;
+      height      : 100%;
+    }
+
+    [part="media"] shaped-media {
+      width   : 100%;
+      height  : 100%;
+    }
+
+    /* Media Shaping */
+    [part="media"] {
+      &.--square {
+        /* aspect-ratio  : 1 / 1; */
+        & picture { 
+          aspect-ratio  : 1 / 1; }
+      }
+      &.--circle {
+      /* aspect-ratio  : 1 / 1; */
+      clip-path     : circle( 50% at center);
+        & picture { aspect-ratio  : 1 / 1;
+        height : 100%; }
+      }
+      &.--brick picture {
+        aspect-ratio  : 2 / 1;
+      }
+      &.--column picture {
+        aspect-ratio  : 1 / 2;
+      }
+    }
+ 
+    @container card-width ( max-width: 300px ) {
+      #grid-wrapper {
+        display         : flex;
+        flex-direction  : column-reverse;
+      }
+      /* #wrapper{
+        --position            : center;
+        --layout              : column-reverse;
+        --margin-inline-start : auto;
+        --margin-inline-end   : auto;
+        max-width             : none;
+      } */
+    }
+  `;constructor(){super(),this.size=void 0,this.potion=void 0,this.layout="column",this.relativeFontSize="inherit",this.src=void 0,this.placeholder=void 0,this.mediaShape=void 0,this.loaded=!1,this.href=void 0,this.target="_self"}connectedCallback(){super.connectedCallback(),this.href&&this.addEventListener("click",()=>window.open(this.href,this.target))}render(){return p`
+      <div id="grid-wrapper">
+
+        <div part="content">
+          <header part="header">
+            <div part="title"><slot name="title"></slot></div>
+            <div part="subtitle"><slot name="subtitle"></slot></div>
+          </header>
+          <slot></slot>
+        </div>
+
+        ${this.src?p`
+            <shaped-media 
+              part="media"
+              src         = ${this.src} 
+              placeholder = ${this.placeholder}
+              loading     = ${this.loading}
+              shape       = ${this.shape}
+              size        = ${this.size}  ></shaped-media>`:m}  
+        
+      </div>
+    `}};customElements.define("card-card",lt);var dt=class extends g{static properties={size:{type:String,reflect:!0},position:{type:String,reflect:!0},href:{type:String,reflect:!0},target:{type:String}};static styles=c`
+    :host {
+      /* --size        : var(--block-md); */
+      --position    : flex-start;
+      --card-gap    : var(--space-sm);
+      --layout      : column;
+
+      /* --border-color : black;
+      --background-color : transparent; */
+  
+      align-self      : var(--position );
+      display         : inline-flex;
+      justify-content : center;
+      align-items     : center;
+      width           : max-content;
+      padding         : 0.1em 0.75em;
+
+
+      border-width  : 0.1em;
+      border-radius : 1.5em;
+      border-color  : var(--primary-color);
+      border-style  : solid;
+
+      font-weight : bolder;
+      text-align  : center;
       
-      <picture
-        part="picture"
-        style="background-image : url('${this.placeholder}');">
-        <img  src     = ${this.src} 
-              loading = ${this.loading}
-              @load   = ${()=>{this.loaded=!0}}>
-      </picture>
-    `}};customElements.define("shaped-media",dt);var ct=class extends g{static properties={src:{type:String},placeholder:{type:String},loading:{type:String},size:{type:String,reflect:!0},shape:{type:String,reflect:!0},layout:{type:String,reflect:!0},loaded:{type:Boolean,reflect:!0},hideCaption:{type:Boolean},_contentRegistry:{type:Object,state:!0}};static styles=[Pt,d`
+    }
+    :host([position="left"]) {
+      --position  : flex-start;
+    }
+    :host([position="center"]) {
+      --position  : center;
+    }
+    :host([position="right"]) {
+      --position  : flex-end;
+    }
+    :host([href]) {
+      cursor : pointer;
+    }
+    :host([href]:hover) {
+      color             : var( --secondary-color );
+      border-color      : var( --secondary-color );
+      background-color  : var( --primary-color );
+    }
+  `;constructor(){super(),this.href=void 0,this.target="_self",this.size=void 0,this.position=void 0,this.addEventListener("click",()=>window.open(this.href,this.target))}render(){return p`<slot></slot>`}};customElements.define("tag-tag",dt);var ct=class extends g{static properties={src:{type:String},placeholder:{type:String},loading:{type:String},size:{type:String,reflect:!0},shape:{type:String,reflect:!0},layout:{type:String,reflect:!0},loaded:{type:Boolean,reflect:!0},hideCaption:{type:Boolean},_contentRegistry:{type:Object,state:!0}};static styles=[Pt,c`
     :host {
       --size            : var(--content-md);
       --_wrapperSize    : max-content;
