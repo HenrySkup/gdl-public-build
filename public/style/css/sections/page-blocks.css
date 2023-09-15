@@ -39,7 +39,7 @@ figure-figure::part( figcaption ) {
 /* CARD-CARD */
 card-card {
   --card-gap  : var( --space-md );
-  transition  : background-color 0.25s ease-in-out;
+  transition  : background-color 0.5s ease-in-out;
 }
 
 card-card::part( header ) {
@@ -54,7 +54,8 @@ card-card::part( content ) {
   color : var(--primary-color);
 }
 card-card[href]:hover {
-  --background-color : var(--secondary-color);
+  --background-color : var(--xmuted-color);
+  /* border : var(--secondary-color) solid 3px; */
 }
 card-card dl {
   & dd {

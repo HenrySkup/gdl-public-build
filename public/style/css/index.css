@@ -122,7 +122,7 @@
   --black       : rgb(0, 0, 0); */
 
   --xlight-grey : #e5e5e5;
-  --light-grey  : #dddddd;
+  --light-grey  : #d6d6d6;
   --grey        : grey;
   --dark-grey   : #444444;
 
@@ -134,7 +134,7 @@
   --white       : rgb(255, 255, 255);
   
   --xlight-grey : #e5e5e5;
-  --light-grey  : #dddddd;
+  --light-grey  : #f0f0f0;
   --grey        : grey;
   --dark-grey   : #444444;
 
@@ -172,8 +172,8 @@
   --secondary-color   : var(--grey);
 
   --contrast-color    : var(--khaki);
-  --muted-color       : var(--grey);
-  --super-muted-color : var(--xlight-grey);
+  --muted-color       : var(--light-grey);
+  --xmuted-color      : var(--xlight-grey);
 
   --background-color  : transparent;
   --accent-color      : var(--tumeric);
@@ -200,9 +200,9 @@
   --space-xl  : 3rem;
   --space-xxl : 6rem;
 
-  --content-xs : 250px;
-  --content-sm : 350px;
-  --content-md : 550px;
+  --content-xs : 150px;
+  --content-sm : 250px;
+  --content-md : 500px;
   --content-lg : 650px;
   --content-xl : 80vw;
 
