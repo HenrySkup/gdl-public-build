@@ -25,9 +25,16 @@
 
 
 /* FIGURE-FIGURE */
+
+
 figure-figure {
   
 }
+
+figure-figure:only-child{
+  margin: 0;
+}
+
 figure-figure::part( figcaption ) {
   color       : var(--muted-color);
   font-size   : smaller;

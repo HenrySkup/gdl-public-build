@@ -100,6 +100,9 @@ gallery-section {
 gallery-section::part( title ) {
   font-weight : 600;
 }
+gallery-section::part( figcaptions ) {
+  font-size: var(--font-size-xs);
+}
 
 /* Deck Section */
 deck-section {

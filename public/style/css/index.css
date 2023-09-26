@@ -172,8 +172,8 @@
   --secondary-color   : var(--grey);
 
   --contrast-color    : var(--khaki);
-  --muted-color       : var(--light-grey);
-  --xmuted-color      : var(--xlight-grey);
+  --muted-color       : var(--grey);
+  --xmuted-color      : var(--light-grey);
 
   --background-color  : transparent;
   --accent-color      : var(--tumeric);
@@ -204,7 +204,7 @@
   --content-sm : 250px;
   --content-md : 500px;
   --content-lg : 650px;
-  --content-xl : 80vw;
+  --content-xl : 800px;
 
   --context-fw : 100vw;
   --context-fh : 100vh;
