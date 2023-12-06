@@ -12,7 +12,7 @@
 
 
 
-<title>Conscious Living Trends 2023 | Godrej Design Lab</title>
+<title>Understanding Conscious Living 2023 | Godrej Design Lab</title>
 <meta name    = "viewport" 
       content = "width=device-width,minimum-scale=1">
 <meta name    = "description" 
@@ -22,7 +22,7 @@
 
 
 <meta property  = "og:title" 
-      content   = Conscious&#32;Living&#32;Trends&#32;2023 />
+      content   = Understanding&#32;Conscious&#32;Living&#32;2023 />
 <meta property  = "og:type" 
       content   = website />
 <meta property  = "og:description" 
@@ -105,8 +105,173 @@
 
 
 
-  <link rel="stylesheet" href="/vendor/locomotive-scroll/dist/locomotive-scroll.min.css">
 
+
+
+
+    
+  <link rel="preload" 
+    href="/fonts/Philosopher-Regular.ttf" 
+    as="font" type="font/ttf" crossorigin>
+
+  <style>
+    @font-face {
+      font-family   : "Philosopher";
+      src           : url(/fonts/Philosopher-Regular.ttf) format(opentype);
+      font-weight   : normal;
+      font-display  : swap;
+    }
+
+    :root {
+      --font-display  : Philosopher, sans-serif; 
+      --font-header   : Yantramanav,sans-serif; 
+
+      --cl24-pink         : #e06dc0;
+      --cl24-red          : #e34c4c;
+      --cl24-orange       : #fc8770;
+      --cl24-light-green  : #8fa833;
+      --cl24-green        : #368973;
+      --cl24-light-blue   : #a1c9fd;
+      --cl24-blue         : #7b8bed;
+      --cl24-indigo       : #004664;
+      --cl24-purple       : #44238e;
+      --cl24-grey         : #c5b4b8;
+      --cl24-cream        : #f8f6d7;
+    }
+
+     
+    [theme="orange"] {
+      --primary-color : white;
+      --secondary-color : var(--cl24-cream);
+      --background-color : var(--cl24-orange);
+      --highlight-color : var(--cl24-red);
+
+      background-size: 100% 100%;
+      background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-image: radial-gradient(18% 28% at 80% 10%, #d85c56 7%, #073AFF00 100%),radial-gradient(18% 28% at 24% 50%, #fa836e 7%, #073AFF00 100%),radial-gradient(18% 28% at 40% 90%, #d85c56 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #f9b89e 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #fa836e 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #f9b89e 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #f8dabd 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #f8dabd 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #f8dabd 24%, #073AFF00 100%),radial-gradient(21% 35% at 95% 10%, #f8dabd 8%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #ec655c 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #ec655c 24%, #073AFF00 100%),linear-gradient(125deg, #ec655c 1%, #ec655c 100%);
+
+    }
+
+    [theme="green"] {
+      --primary-color : white;
+      --secondary-color : var(--cl24-cream);
+      --background-color : var(--cl24-green);
+
+      background-size: 100% 100%;
+      background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-image: radial-gradient(23% 28% at 0% 100%, #82a33c 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #368873 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #368873 0%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #368873 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #368873 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #368873 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #3f608d 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #247170 24%, #073AFF00 100%),linear-gradient(125deg, #368873 1%, #1a5573 100%);
+
+    }
+
+    [theme="pink"] {
+      --primary-color : white;
+      --secondary-color : var(--cl24-cream);
+      --background-color : var(--cl24-pink);
+
+      background-size: 100% 100%;
+      background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-image: radial-gradient(25% 20% at 10% 90%, #98a044 8%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #df6dbf 0%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #df6dbf 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #df6dbf 24%, #073AFF00 100%),radial-gradient(21% 37% at 90% 5%, #f88477 1%, #073AFF00 100%),radial-gradient(21% 37% at 10% 5%, #EC6B83FF 24%, #073AFF00 100%),radial-gradient(25% 25% at 99% 85%, #7b8aec 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #df6dbf 24%, #073AFF00 100%),linear-gradient(125deg, #df6dbf 1%, #df6dbf 100%);
+
+    }
+
+    [theme="blue"] {
+      --primary-color : white;
+      --secondary-color : var(--cl24-cream);
+      --background-color : var(--cl24-blue);
+
+      background-size: 100% 100%;
+      background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-image: radial-gradient(70% 70% at 10% 90%, #4c339b 5%, #073AFF00 100%),radial-gradient(28% 28% at 100% 50%, #a0c8fc 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #6561c7 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #4c339b 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #6c6fd3 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #6c6fd3 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #7680e3 24%, #073AFF00 100%),linear-gradient(125deg, #7782e5 1%, #7782e5 99%);
+
+    }
+
+
+     
+    html[data-scroll-orientation="horizontal"] {
+      body {
+          width: fit-content;
+      }
+      [data-scroll-container] {
+          display: flex;
+      }
+    }
+
+    header {
+      font-family: var(--font-display);
+    }
+
+    .shift-section {
+      display     : flex; 
+      flex-wrap: wrap;
+      min-height  : 90vh;
+      max-width   : 100%;
+      align-items : center;
+      container   : shift-section-width / inline-size;
+      background-color: var(--background-color, transparent);
+    }
+
+    .shift-section__content {
+      width     : 40ch;
+      max-width : 500px;
+      margin-block : var(--space-md);
+      margin-inline: auto;
+
+      position: relative;
+      z-index: 10000;
+
+      backdrop-filter: blur(5px);
+    }
+
+
+    .shift-section__title {
+      font-family: var(--font-display);
+      font-size:  var(--font-size-xl);
+      color : var(--primary-color);
+      line-height: 0.9;
+      margin-block-end: 1em;
+    }
+    .shift-section__introduction {
+      font-size:  var(--font-size-lg);
+      color : var(--secondary-color)
+    }
+
+    .shift-section__graphic{
+      max-height  : 100%;
+      position    : absolute;
+    }
+
+
+    @container shift-section-width ( max-width: 500px ) {
+      .shift-section__content {
+        width   : 100%;
+      }
+      .shift-key-image {
+        width   : 100%;
+      }
+    }
+
+    #about-the-report{
+        background-size: 100% 100%;
+        background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+        background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #73F2FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #D3FF6D9C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #6DFFAEF5 24%, #073AFF00 100%),linear-gradient(125deg, #E3F3FFFF 1%, #414141FF 100%);
+    }
+
+    #credits ul {
+      list-style: none;
+      padding: 0;
+
+    }
+
+    #credits #contributors + ul {
+
+      columns: 2;
+      line-height: 1.5;
+
+    }
+
+  </style>
+
+  
 
 
 
@@ -115,8 +280,7 @@
   <body>
     
     
-    <header class="site-header"
-            theme = ZgotmplZ>
+    <header class="site-header">
       <a  
         id="site-branding"
         href="/" 
@@ -127,12 +291,12 @@
 
       </a>
       <h1 class="page-title"
-          hidden>Conscious Living Trends 2023 </h1>
+          hidden>Understanding Conscious Living 2023 </h1>
     </header>
 
-    <side-bar 
-      
-        theme = earthy  >
+    <side-bar theme = earthy  >
+
+      <div slot="toggle">+</div>
   
   
 
@@ -171,58 +335,70 @@
   
 
   
-    
-    
-  
-
-  <a 
-    
-     href  = https://www.godrejdesignlab.com/fellowship/ 
-     >
-
-    
-      Fellowship Program
-    
-  </a>
-  
+    <header  >Initiatives</header>
   
 
   
+ 
     
     
-  
+    
+      
+      
+      
+    
 
-  <a 
-    
-     href  = https://consciouscollective.in 
-     target  = _blank  >
-
-    
-    Conscious Collective 2023
-
-    
-  </a>
-    <header  >Coming soon</header>
-  
-
-  
-    
-    
-    
     <a 
       
-      
-      target  = "_blank">
+       href  = https://www.godrejdesignlab.com/conscious-living/2023/ 
+       target  = _self 
+      >
 
       
-      Conscious Living Trends 2023
-
+        Understanding Conscious Living
       
     </a> 
   
+ 
+    
+    
+    
       
       
-      <a slot = "footer" 
+      
+    
+
+    <a 
+      
+       href  = https://www.godrejdesignlab.com/fellowship/ 
+       target  = _self 
+      >
+
+      
+        Fellowship Program
+      
+    </a> 
+  
+ 
+    
+    
+    
+      
+      
+    
+
+    <a 
+      
+       href  = https://consciouscollective.in/ 
+       target  = _blank 
+      >
+
+      
+      Conscious Collective 2023
+
+      
+    </a> 
+  <a slot = "footer" 
           id      = "sidebar-branding"
           href    = "https://www.godrej.com/godrejandboyce/" 
           aria-label="Link to main Godrej and Boyce Site"
@@ -247,47 +423,1144 @@
 
       </a>
 
+      
+            
+
     </side-bar>
 
     <main >
       
+        
+    
+
+
+  
+
+
+
+
+
+
+<style>
+  .cover {
+
+    position: relative;
+  }
+
+  .cover__graphic {
+    position: absolute;
+
+    &.--foreground { z-index: 200; }
+    &.--background { z-index: -200; }
+
+    &.--y-center { top : 50%; }
+    &.--y-bottom { bottom : 0; }
+    &.--x-left { left : 20%; }
+    &.--x-right { right : 20%; }
+        
+  }
+
+  #cover-cta {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    padding: 1em;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all ease-in-out 0.5s;
+
+    text-decoration: none;
+    color: var(--muted-color);
+
+  }
+
+  #cover-cta:hover {
+  transform: scale(1.2);
+  color: var(--background-color);
+  }
+
+  #cover-cta>div {
+    text-align:center;
+    
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .cover footer {
+  color: var(--primary-color);
+  }
+
+
+
+</style>
+
+
+<callout-section 
+  
+  class="cover"
+  theme = "blue"
+  
+>
+
+  <fit-text
+    data-scroll data-scroll-speed="-0.2" 
+    text="Understanding Conscious Living in India"
+    style="position:relative; z-index:100;">
+  </fit-text>
+
+  
+    <footer slot="footer">A deep dive into spaces, materials and the environment</footer>
+  
+
+  <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/BA/Bird.png
+  
+      size  = "sm"
+
+      style = "
+         z-index : 200; 
+         top : 0 ; 
+        
+        
+         left : 100px ; 
+        
+      "
+
+      
+        data-scroll 
+        data-scroll-speed = "-0.1" 
+         
+    ></shaped-media>  
+    <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/BA/Grass%202.png
+  
+      size  = "md"
+
+      style = "
+         z-index : 200; 
+        
+        
+         bottom : 5em ; 
+         left : 2em ; 
+         opacity : 0.7 ; 
+      "
+
+         
+    ></shaped-media>  
+    <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/BA/Tree%204.png
+  
+      size  = "md"
+
+      style = "
+         z-index : -500; 
+        
+        
+         bottom : 25% ; 
+         left : -10% ; 
+         opacity : 0.8 ; 
+      "
+
+      
+        data-scroll 
+        data-scroll-speed = "0.1" 
+         
+    ></shaped-media>  
+    <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/BA/Tree%204.png
+  
+      size  = "sm"
+
+      style = "
+         z-index : -500; 
+        
+        
+        
+        
+         opacity : 0.8 ; 
+      "
+
+      
+        data-scroll 
+        data-scroll-speed = "-0.1" 
+         
+    ></shaped-media>  
+    <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/BA/Tree%202.png
+  
+      size  = "xl"
+
+      style = "
+         z-index : -500; 
+        
+         right : -5% ; 
+        
+        
+         opacity : 0.7 ; 
+      "
+
+      
+        data-scroll 
+        data-scroll-speed = "0.1" 
+         
+    ></shaped-media>  
+    <shaped-media 
+      class = "cover__graphic"
+      src   = /media/conscious-living/2023/Bird%201.png
+  
+      size  = "md"
+
+      style = "
+         z-index : 200; 
+        
+         right : 5% ; 
+         bottom : ZgotmplZ ; 
+        
+        
+      "
+
+         
+    ></shaped-media>  
+    <a id="cover-cta"
+    data-scroll 
+        data-scroll-speed = "-0.1" 
+        style = "background-image : url(/media/conscious-living/2023/Blobs/Blob%202.png);">
+      <div>Read the entire report</div>
+    </a>
+</callout-section>  
+
+
+    
+
+<page-section
+   id = about-the-report 
+   theme = invisible 
+> 
+
   
     
-<callout-section 
-   id = introduction 
+      <h2 slot="title">About the report</h2>
+    
+    
+  
+
+  
+    <div slot="introduction">
+      <p>Godrej Design Lab is a platform to explore how design can impact better living. We collaborated with Unbox Cultural Futures, a leading arts and culture research organisation, to create a foundation for and inspire innovative ideas around conscious living.</p>
+
+    </div>
+  
+
+   
+
+    
+      
+
+  <p>Together, we delved into the essence of sustainability in the built environment, exploring the dynamic interplay between spaces, materials, and the environment. Our research, enriched and nuanced by insights from experts and unique user experiences, aims to illuminate an Indian perspective on conscious living.</p>
+<p>We zeroed in on ‘4 Big Shifts’ that we believe have the potential to shape conscious living within India&rsquo;s complex socio-economic climate.</p>
+
+
+
+    
+   
+
+    
+      
+
+
+
+  
+
+
+<tag-tag
+
+  id = Read&#32;the&#32;entire&#32;report
+  
+   size = md 
+  
+
+  
+  theme = invisible 
+>
+  Read the entire report
+</tag-tag>
+
+    
+   
+
+    
+      
+
+
+  <style>
+
+  #shifts {
+    margin-block: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap : var(--space-lg);
+  }
+
+  #shifts>nav{
+
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap : var(--space-sm);
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .shifts-nav__link {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+
+    width: 100%;
+    max-width : var(--content-sm);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding : var(--space-sm);
+
+    color : var(--secondary-color);
+    font-family: var(--font-family-heading);
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+
+    background-color: var(--background-color);
+    background-image: none;
+
+    box-shadow: 0 0 10px 10px var(--background-color);
+    transition: 0.4s ease-in-out transform;
+
+    cursor: pointer;
+  }
+
+  .shifts-nav__link:hover {
+    transform: scale(1.2);
+  }
+
+  #shifts-logo {
+    position: absolute;
+
+
+    width: var(--content-md);
+    max-width: 40%;
+    overflow: visible;
+ 
+    z-index : 500;
+  }
+  #shifts-logo::part(picture) {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+</style>
+
+
+<section 
+  id="shifts"
+  class="page-module"
+  size="breakout">
+
+
+  
+
+
+  <nav >
+
+    <a href="#looking-back-to-move-forward" 
+      class ="shifts-nav__link" theme="orange">
+      Looking back to move forward
+    </a>
+    
+    <a href="#balancing-act-consumption--conservation" 
+      class ="shifts-nav__link" theme="green">
+      Balancing Act
+    </a>
+    <a href="#looking-back-to-move-forward" 
+      class ="shifts-nav__link" theme="pink">
+      Spaces Activated
+    </a>
+    <a href="#looking-back-to-move-forward" 
+      class ="shifts-nav__link" theme="blue">
+      Search for Authenticity
+    </a>
+
+    
+
+  </nav>
+
+  <shaped-media 
+      id="shifts-logo"
+      src   = /media/conscious-living/2023/4%20Big%20Shifts.png
+      size  = "sm"
+      
+    ></shaped-media>  
+  
+
+
+</section>
+
+
+
+    
+   
+
+    
+      
+
+
+  
+
+<style>
+
+  #defining-consciousness {
+    margin-block: var(--space-xl);
+    position: relative;
+    container: defining-consciousness / inline-size;
+  }
+
+  #defining-consciousness__wrapper {
+    display: flex;
+    gap: var(--space-xl);
+  }
+  
+
+  header {
+
+    color: var(--secondary-color);
+    
+  }
+
+  header .introduction {
+    color: var(--contrast-color);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family-display);
+    line-height: 0.9;
+    max-width:20ch;
+  }
+  #defining-consciousness .body {
+
+    max-width:30ch;
+  }
+
+
+  #conscious-head {
+    z-index : -200;
+    position: absolute;
+    opacity: 0.7;
+    bottom : 20px;
+}
+
+@container defining-consciousness ( max-width: 400px ) {
+  #defining-consciousness__wrapper {
+    flex-wrap: wrap;
+  }
+
+  #conscious-head {
+    opacity: 0.3;
+    bottom : 60%;
+  }
+}
+
+
+</style>
+
+<section  
+  id="defining-consciousness"
+  class="page-module "
+  size ="fullwidth"
+  theme = ZgotmplZ
+>
+
+  <div id="defining-consciousness__wrapper">
+
+    <header>
+      Defining ‘Consciousness’
+      <div class="introduction">
+        Consciousness, at its simplest, is the awareness of internal and external existence.
+      </div>
+    </header>
+
+    <div class="body"> <p>As we look at conscious living, we consider three states of awareness:</p>
+<p>Sensing the world</p>
+<p>The awareness and sensorial experience of the external world - organisms, objects, events, context, surroundings, and environment</p>
+<p>Sensing the body</p>
+<p>Conscious awareness of our body, its internal sensations, bodily functions, and physical states</p>
+<p>Sensing the mind</p>
+<p>Conscious awareness of our mind, its feelings, emotions, thoughts, memories, mental processes, and cognitive states</p>
+ </div>
+
+  </div><shaped-media 
+      id="conscious-head"
+      src   = /media/conscious-living/2023/SFA/Head.png
+      size  = "md"
+      data-scroll 
+      data-scroll-speed = 0.05 
+  ></shaped-media>  
+
+  
+</section>
+
+
+
+    
+  
+
+</page-section>
+
+    
+
+
+  
+<section  
+  id=ZgotmplZ 
+  class="shift-section"
+  size ="fullbleed"
+  theme = orange
+  data-scroll-section>
+
+  <div  class="shift-section__content"
+        data-scroll data-scroll-speed="-0.1">
+    <header class="shift-section__title"></header>
+    <div class="shift-section__introduction"><h2 id="looking-back-to-move-forward">Looking Back to Move Forward</h2>
+<p>India&rsquo;s scientific capabilities, built through collaboration on a global stage, have empowered us to view our rich cultural knowledge and heritage through a new lens. This has resulted in a masterpiece-like convergence of the old and the new, the traditional and the modern.</div>
+  </div>
+
+  
+
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/LBTMF/mud%20house.png
+        size  = "md"
+        style = "
+          
+          
+           right : 0 ; 
+           bottom : 10px ; 
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/LBTMF/grass_1.png
+        size  = "sm"
+        style = "
+           z-index : 200; 
+          
+          
+           bottom : 20px ; 
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/LBTMF/window.png
+        size  = "md"
+        style = "
+           z-index : -200; 
+          
+          
+          
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "0.5" 
+        
+        
+      ></shaped-media>  
+ 
+  
+  
+</section>
+
+
+    
+
+
+  
+<section  
+  id=ZgotmplZ 
+  class="shift-section"
+  size ="fullbleed"
+  theme = green
+  data-scroll-section>
+
+  <div  class="shift-section__content"
+        data-scroll data-scroll-speed="-0.1">
+    <header class="shift-section__title"></header>
+    <div class="shift-section__introduction"><h2 id="balancing-act-consumption--conservation">Balancing Act: Consumption &amp; Conservation</h2>
+<p>Consumers are looking to policy and private players to address their mounting consumption needs while at the same time managing and measuring environmental impact.</div>
+  </div>
+
+  
+
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/BA/Book.png
+        size  = "sm"
+        style = "
+          
+          
+           right : 0 ; 
+           bottom : 10% ; 
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/BA/House.png
+        size  = "md"
+        style = "
+           z-index : -100; 
+          
+           right : 10px ; 
+          
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "-0.1" 
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/BA/Potted%20plant.png
+        size  = "md"
+        style = "
+          
+          
+          
+          
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  
+  
+</section>
+
+
+    
+
+
+  
+<section  
+  id=ZgotmplZ 
+  class="shift-section"
+  size ="fullbleed"
+  theme = pink
+  data-scroll-section>
+
+  <div  class="shift-section__content"
+        data-scroll data-scroll-speed="-0.1">
+    <header class="shift-section__title"></header>
+    <div class="shift-section__introduction"><h2 id="spaces-activated">Spaces Activated</h2>
+<p>This post-pandemic world has reshaped our expectations of where and how we are supposed to live, and live well. In this &ldquo;new normal,&rdquo; cities are becoming more socially oriented, with community spaces that prioritise social development, nation-building, leisure, entertainment, and spectacle.</div>
+  </div>
+
+  
+
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SA/building.png
+        size  = "md"
+        style = "
+          
+          
+          
+          
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SA/Grass.png
+        size  = "md"
+        style = "
+          
+           top : 40% ; 
+           right : 5% ; 
+          
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "1" 
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SA/parkbench.png
+        size  = "md"
+        style = "
+           z-index : -200; 
+          
+           right : 0 ; 
+          
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  
+  
+</section>
+
+
+    
+
+
+  
+<section  
+  id=ZgotmplZ 
+  class="shift-section"
+  size ="fullbleed"
+  theme = blue
+  data-scroll-section>
+
+  <div  class="shift-section__content"
+        data-scroll data-scroll-speed="-0.1">
+    <header class="shift-section__title"></header>
+    <div class="shift-section__introduction"><h2 id="search-for-authenticity">Search for Authenticity</h2>
+<p>This technology-driven, knowledge-production is pushing us to define the boundaries of &lsquo;self&rsquo; in relation to identity and how we present ourselves. What it has led to is a conception of new identities and aesthetics in this search for uniqueness.</div>
+  </div>
+
+  
+
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SFA/Phygital%20illustration.png
+        size  = "md"
+        style = "
+           z-index : -200; 
+          
+          
+          
+          
+        "
+
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SFA/Hand%20phone.png
+        size  = "sm"
+        style = "
+          
+          
+           right : 10% ; 
+          
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "0.3" 
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SFA/Pixels%201.png
+        size  = "xs"
+        style = "
+          
+          
+           right : 10% ; 
+           bottom : 30% ; 
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "1" 
+        
+        
+      ></shaped-media>  
+ 
+  <shaped-media 
+        class = "shift-section__graphic --background"
+        src   = /media/conscious-living/2023/SFA/Pixels%202.png
+        size  = "xs"
+        style = "
+          
+           top : 30% ; 
+           right : 10px ; 
+          
+          
+        "
+
+        
+          data-scroll 
+          data-scroll-speed = "-0.3" 
+        
+        
+      ></shaped-media>  
+ 
+  
+  
+</section>
+
+
+    
+
+<page-section
+   id = credits 
+   theme = black 
+> 
+
+  
+    
+      <h2 slot="title">Credits</h2>
+    
+    
+  
+
+  
+
+   
+
+    
+      
+
+  <h3 id="contributors">Contributors</h3>
+<ul>
+<li>Aniruddha Shanbhag</li>
+<li>Anupama Kundoo</li>
+<li>Ayaz Basrai</li>
+<li>Asha Sairam</li>
+<li>Elizabeth Yorke</li>
+<li>Giulia Ambrogi</li>
+<li>Gresham Fernandes</li>
+<li>Kriti Tula</li>
+<li>Monish Siripurapu</li>
+<li>Mrinalini Ghadiok</li>
+<li>Priyal Shah</li>
+<li>Krsnaa Mehta</li>
+<li>Rahul Mehrotra</li>
+<li>Rooshad Shroff</li>
+<li>Sameep Padora</li>
+<li>Sameer Kulavoor</li>
+<li>Architecture for Dialogue</li>
+<li>Anomalia</li>
+<li>ARAKU Coffee</li>
+<li>Atelier Varun Goyal</li>
+<li>BombayDuckDesigns</li>
+<li>CITTA India</li>
+<li>LP4Y</li>
+<li>Nose to Tail</li>
+<li>Otherworlds</li>
+<li>Sketch Design Studio</li>
+<li>Social Design Collaborative</li>
+<li>Studio North</li>
+<li>StudioPOD</li>
+<li>SHiFt</li>
+<li>Vastushilpa Sangath</li>
+<li>Warrior Moms</li>
+<li>Zerocircle</li>
+</ul>
+
+
+
+    
+   
+
+    
+      
+
+<deck-deck 
+   id=research 
+   size = normal 
+   layout  = column 
+>
+
+  
+    
+      <h3 slot="title">Research</h3>
+    
+    
+  
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+               
+                  
+
+
+
+
+
+
+<card-card
+   id = unbox-cultural-futures 
+   size = md 
    theme = invisible 
   
-     src = /media/pexels-google-deepmind-17483910_hu3d03a01dcc18bc5be0e67db3d8d209a6_7737538_1280x720_fit_q75_box.jpg 
-     placeholder = /media/pexels-google-deepmind-17483910_hu3d03a01dcc18bc5be0e67db3d8d209a6_7737538_fb1c42a89d48bce9b5f626886b20e6ba.jpg 
+   layout = row-reverse 
+>
+
+  
+    <div slot="title">Unbox Cultural Futures</div>
+  
+  
+    <div slot="subtitle"><p>UnBox celebrates interdisciplinary experiences that shape contemporary thought.</p>
+<p><a href="https://www.instagram.com/unboxculturalfutures/">Learn more</a></p>
+</div>
+  
+  
+    <div>
+      <ul>
+<li>Aparajita Bhasin</li>
+<li>Dennis Theo</li>
+<li>Neha Singh</li>
+<li>Shreya Dalmia</li>
+</ul>
+
+    </div>    
+  
+  
+
+   
+    <shaped-media 
+      slot="media"
+      src = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_1280x720_fit_q75_bgffffff_box_3.jpg
+       placeholder = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_635e7dc2bd1617f9f2e2891ac8a0829d.jpg 
+      loading = "lazy"
+       layout = row-reverse 
+       shape = square 
+       intrinsicWidth = 465 
+       intrinsicHeight = 465 >
+    </shaped-media>  
+  
+
+</card-card>
+ 
+  
+
+</deck-deck>
+    
+   
+
+    
+      
+
+<deck-deck 
+   id=report 
+   size = normal 
   
 >
-  But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.
-</callout-section>
 
+  
+    
+      <h3 slot="title">Report</h3>
+    
+    
+  
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+               
+                  
+
+
+
+
+
+
+<card-card
+   id = sneha-ullal-goel 
+   size = md 
+   theme = invisible 
+  
+   layout = row-reverse 
+>
+
+  
+    <div slot="title">Sneha Ullal Goel</div>
+  
+  
+    <div slot="subtitle">Sneha Ullal Goel is a design culturist, curator and educator.</div>
+  
+  
+  
+
+   
+    <shaped-media 
+      slot="media"
+      src = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_1280x720_fit_q75_box.jpg
+       placeholder = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_16786e2e5f67ad50626c87edc33b1f4d.jpg 
+      loading = "lazy"
+       layout = row-reverse 
+       shape = square 
+       intrinsicWidth = 480 
+       intrinsicHeight = 720 >
+    </shaped-media>  
+  
+
+</card-card>
+ 
+  
+    
+
+
+
+
+
+
+
+
+
+               
+                  
+
+
+
+
+
+
+<card-card
+   id = studio-how-about-that 
+   size = md 
+   theme = invisible 
+  
+   layout = row-reverse 
+>
+
+  
+    <div slot="title">Studio How About That</div>
+  
+  
+    <div slot="subtitle"><p>How About That! is an independent multidisciplinary creative and digital studio.</p>
+<p><a href="https://howaboutthat.in/">Learn more</a></p>
+</div>
+  
+  
+    <div>
+      <ul>
+<li>Anoushka Dasgupta</li>
+<li>Archana Valecha</li>
+<li>Mallika Sankaranarayanan</li>
+<li>Neethi</li>
+<li>Sanal Nair</li>
+</ul>
+
+    </div>    
   
   
 
-    <deck-section 
-      id      = "megatrends"
-      size    = "fw"
-      layout  = "column"
-      class   = "--invisible"
-    >
+   
+    <shaped-media 
+      slot="media"
+      src = /media/logos/HAT%20%20white-02_hu099504aed4f7e73892429af5a1d4f666_469241_1280x720_fit_q75_bgffffff_box_3.jpg
+       placeholder = /media/logos/HAT%20%20white-02_hu099504aed4f7e73892429af5a1d4f666_469241_7cedc2673a1048ac80078c9d7e416701.jpg 
+      loading = "lazy"
+       layout = row-reverse 
+       shape = square 
+       intrinsicWidth = 720 
+       intrinsicHeight = 720 >
+    </shaped-media>  
+  
 
+</card-card>
+ 
+  
+
+</deck-deck>
+    
+   
+
+    
       
-        <div slot="title">Conscious Living Trends 2023</div>
-      
 
-      
-      
+<deck-deck 
+   id=godrej--boyce 
+   size = normal 
+   layout  = row 
+>
 
-        
-        
-          
-        
+  
+    
+      <h3 slot="title">Godrej &amp; Boyce</h3>
+    
+    
+  
 
-        
 
+  
+    
 
 
 
@@ -303,39 +1576,35 @@
 
 
 <card-card
-   id = maturing-eco-consciousness 
+   id = godrej-design-lab 
+   size = md 
+   theme = invisible 
   
-   size = fw 
-  
-
-  
-
-  
+   layout = row-reverse 
 >
+
+  
+    <div slot="title">Godrej Design Lab</div>
   
   
-    <div slot="title">Maturing Eco Consciousness</div>
+  
+    <div>
+      <ul>
+<li>Ashita Misquitta</li>
+<li>Henry Skupniewicz</li>
+<li>Sujata Sanke</li>
+</ul>
+
+    </div>    
   
   
-  
-    Precarious eco consciousness represents a significant
-paradigm shift in the acceptance of climate change as
-a nation. While the country grapples with the lived
-realities of climate uncertainties, we are building a
-networked understanding not as an innocent bystander
-or the culprit of the crisis but as an agent of change.
+
   
 
 </card-card>
-
-
-      
-
-        
-        
-
-        
-
+ 
+  
+    
 
 
 
@@ -351,37 +1620,66 @@ or the culprit of the crisis but as an agent of change.
 
 
 <card-card
-   id = spaces-activated 
   
-   size = fw 
+   size = md 
+   theme = invisible 
   
-
-  
-
-  
+   layout = row-reverse 
 >
-  
-  
-    <div slot="title">Spaces Activated</div>
+
   
   
   
-    As rural and urban development converge, our perception
-of cities and spaces as living organisms is evolving. The
-pandemic has further reshaped our expectations of our
-living environments. In response to these shifts, institutions
-and corporations are redefining the cultural and functional
-boundaries of spaces.
+    <div>
+      <ul>
+<li><a href="https://www.godrej.com/infrastructure/Green-Building-Consultancy-Services">Godrej &amp; Boyce Green Consultancy &amp; Energy Management</a></li>
+<li><a href="https://www.godrej.com/appliances">Godrej Appliances</a></li>
+<li><a href="https://www.godrej.com/godrej-construction">Godrej Construction</a></li>
+<li><a href="https://www.godrej.com/godrej-electricals-and-electronics">Godrej Electricals &amp; Electronics</a></li>
+<li><a href="https://www.godrejinterio.com/">Godrej Interio</a></li>
+</ul>
+
+    </div>    
+  
+  
+
   
 
 </card-card>
-
-
-      
-
-    </deck-section>
+ 
   
 
+</deck-deck>
+    
+   
+
+    
+      
+
+
+
+  
+
+
+<tag-tag
+
+  id = Read&#32;the&#32;entire&#32;report
+  
+   size = md 
+  
+
+  
+  theme = invisible 
+>
+  Read the entire report
+</tag-tag>
+
+    
+  
+
+</page-section>
+
+      
     </main>
 
     
@@ -441,11 +1739,12 @@ boundaries of spaces.
 
   <a 
      slot  = nav 
-     href  = https://www.godrejdesignlab.com/fellowship/ 
+    
      >
 
     
-      Fellowship Programme
+    Fellowship Programme
+
     
   </a>
   

@@ -105,9 +105,13 @@
 
 
 
-  <link rel="stylesheet" href="/vendor/locomotive-scroll/dist/locomotive-scroll.min.css">
 
 
+
+
+    
+
+    
 
 
   </head>
@@ -115,8 +119,7 @@
   <body>
     
     
-    <header class="site-header"
-            theme = ZgotmplZ>
+    <header class="site-header">
       <a  
         id="site-branding"
         href="/" 
@@ -130,9 +133,9 @@
           hidden>Categories </h1>
     </header>
 
-    <side-bar 
-      
-        theme = earthy  >
+    <side-bar theme = earthy  >
+
+      <div slot="toggle">+</div>
   
   
 
@@ -171,58 +174,70 @@
   
 
   
-    
-    
-  
-
-  <a 
-    
-     href  = https://www.godrejdesignlab.com/fellowship/ 
-     >
-
-    
-      Fellowship Program
-    
-  </a>
-  
+    <header  >Initiatives</header>
   
 
   
+ 
     
     
-  
+    
+      
+      
+      
+    
 
-  <a 
-    
-     href  = https://consciouscollective.in 
-     target  = _blank  >
-
-    
-    Conscious Collective 2023
-
-    
-  </a>
-    <header  >Coming soon</header>
-  
-
-  
-    
-    
-    
     <a 
       
-      
-      target  = "_blank">
+       href  = https://www.godrejdesignlab.com/conscious-living/2023/ 
+       target  = _self 
+      >
 
       
-      Conscious Living Trends 2023
-
+        Understanding Conscious Living
       
     </a> 
   
+ 
+    
+    
+    
       
       
-      <a slot = "footer" 
+      
+    
+
+    <a 
+      
+       href  = https://www.godrejdesignlab.com/fellowship/ 
+       target  = _self 
+      >
+
+      
+        Fellowship Program
+      
+    </a> 
+  
+ 
+    
+    
+    
+      
+      
+    
+
+    <a 
+      
+       href  = https://consciouscollective.in/ 
+       target  = _blank 
+      >
+
+      
+      Conscious Collective 2023
+
+      
+    </a> 
+  <a slot = "footer" 
           id      = "sidebar-branding"
           href    = "https://www.godrej.com/godrejandboyce/" 
           aria-label="Link to main Godrej and Boyce Site"
@@ -246,6 +261,9 @@
 </svg>
 
       </a>
+
+      
+            
 
     </side-bar>
 
@@ -312,11 +330,12 @@
 
   <a 
      slot  = nav 
-     href  = https://www.godrejdesignlab.com/fellowship/ 
+    
      >
 
     
-      Fellowship Programme
+    Fellowship Programme
+
     
   </a>
   
