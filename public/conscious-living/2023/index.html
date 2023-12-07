@@ -141,8 +141,8 @@
 
      
     [theme="orange"] {
-      --primary-color : white;
-      --secondary-color : var(--cl24-cream);
+      --primary-color : var(--cl24-indigo);
+      --secondary-color : white;
       --background-color : var(--cl24-orange);
       --highlight-color : var(--cl24-red);
 
@@ -153,8 +153,8 @@
     }
 
     [theme="green"] {
-      --primary-color : white;
-      --secondary-color : var(--cl24-cream);
+      --primary-color : var(--cl24-indigo);
+      --secondary-color : white;
       --background-color : var(--cl24-green);
 
       background-size: 100% 100%;
@@ -164,8 +164,8 @@
     }
 
     [theme="pink"] {
-      --primary-color : white;
-      --secondary-color : var(--cl24-cream);
+      --primary-color : var(--cl24-indigo);
+      --secondary-color : white;
       --background-color : var(--cl24-pink);
 
       background-size: 100% 100%;
@@ -175,8 +175,8 @@
     }
 
     [theme="blue"] {
-      --primary-color : white;
-      --secondary-color : var(--cl24-cream);
+      --primary-color : var(--cl24-indigo);
+      --secondary-color : white;
       --background-color : var(--cl24-blue);
 
       background-size: 100% 100%;
@@ -208,6 +208,8 @@
       align-items : center;
       container   : shift-section-width / inline-size;
       background-color: var(--background-color, transparent);
+
+      color: var(--primary-color);
     }
 
     .shift-section__content {
@@ -215,24 +217,26 @@
       max-width : 500px;
       margin-block : var(--space-md);
       margin-inline: auto;
+      padding: var(--space-sm);
 
       position: relative;
       z-index: 10000;
-
+      border-radius: 4px;
+      background-color: rgba(255,255,255,0.3);
       backdrop-filter: blur(5px);
     }
 
-
-    .shift-section__title {
+    .shift-section__introduction h2 {
       font-family: var(--font-display);
-      font-size:  var(--font-size-xl);
-      color : var(--primary-color);
+      font-size:  1.9rem;
+      color : var(--secondary-color);
       line-height: 0.9;
       margin-block-end: 1em;
     }
     .shift-section__introduction {
       font-size:  var(--font-size-lg);
-      color : var(--secondary-color)
+      line-height: 1.2;
+      color : var(--primary-color)
     }
 
     .shift-section__graphic{
@@ -244,17 +248,26 @@
     @container shift-section-width ( max-width: 500px ) {
       .shift-section__content {
         width   : 100%;
+        height : 100%;
+        
+        
       }
-      .shift-key-image {
-        width   : 100%;
+      .shift-section__introduction {
+        font-size: var(--font-size-md);
       }
+      .shift-section__graphic{
+        opacity:0.5;
+      }
+     
     }
 
-    #about-the-report{
-        background-size: 100% 100%;
-        background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
-        background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #73F2FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #D3FF6D9C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #6DFFAEF5 24%, #073AFF00 100%),linear-gradient(125deg, #E3F3FFFF 1%, #414141FF 100%);
+    #about-the-report {
+      background-size: 100% 100%;
+      background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+      background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #73F2FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #D3FF6D9C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #8A4FFFF5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #6DFFAEF5 24%, #073AFF00 100%),linear-gradient(125deg, #E3F3FFFF 1%, #414141FF 100%);
     }
+
+    
 
     #credits ul {
       list-style: none;
@@ -263,10 +276,11 @@
     }
 
     #credits #contributors + ul {
-
       columns: 2;
-      line-height: 1.5;
-
+    }
+    #credits #contributors + ul li {
+      padding-top: var(--space-sm);
+      line-height: normal;
     }
 
   </style>
@@ -443,8 +457,15 @@
 
 <style>
   .cover {
-
+    --primary-color          : var(--cl24-indigo );
     position: relative;
+    
+    max-height: 150vh;
+
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(18% 28% at 24% 50%, #92acf8 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #92acf8 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #9cc0fc 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #92acf8 24%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #92acf8 24%, #073AFF00 100%),linear-gradient(125deg, #cde1f2 1%, #cde1f2 50%, #cde1f2 98%);
+
   }
 
   .cover__graphic {
@@ -461,36 +482,36 @@
   }
 
   #cover-cta {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1;
-    padding: 1em;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
 
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: all ease-in-out 0.5s;
+    padding         : 1em;
 
-    text-decoration: none;
-    color: var(--muted-color);
-
+    transition        : all ease-in-out 0.5s;
+    position: relative;
+    z-index: 10000;
+    text-decoration : none;
+    color           : var(--primary-color);
   }
 
   #cover-cta:hover {
-  transform: scale(1.2);
-  color: var(--background-color);
+    transform: scale(1.2);
+    color: var(--background-color);
   }
 
   #cover-cta>div {
-    text-align:center;
-    
-    text-transform: uppercase;
-    font-weight: bold;
+    text-align      :center;
+    text-transform  : uppercase;
+    font-weight     : bold;
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    text-align: left;
   }
 
   .cover footer {
-  color: var(--primary-color);
+    margin-top: var(--space-xl);
+    color: var(--primary-color);
   }
 
 
@@ -503,6 +524,7 @@
   class="cover"
   theme = "blue"
   
+  data-scroll-section
 >
 
   <fit-text
@@ -512,112 +534,35 @@
   </fit-text>
 
   
-    <footer slot="footer">A deep dive into spaces, materials and the environment</footer>
+    <footer slot="footer"
+    
+    data-scroll 
+    data-scroll-speed = "-0.1" >A deep dive into spaces, materials and the environment</footer>
   
 
-  <shaped-media 
+  
+    <shaped-media 
       class = "cover__graphic"
-      src   = /media/conscious-living/2023/BA/Bird.png
-  
+      src   = /media/conscious-living/2023/BA/Bird_hud3e529456c03e1677a79eede60320fa4_23953_1280x1280_fit_q75_h2_box_3.webp
       size  = "sm"
-
       style = "
-         z-index : 200; 
+         z-index : -200; 
          top : 0 ; 
         
         
-         left : 100px ; 
+         left : 5% ; 
         
       "
-
       
         data-scroll 
         data-scroll-speed = "-0.1" 
          
     ></shaped-media>  
+  
     <shaped-media 
       class = "cover__graphic"
-      src   = /media/conscious-living/2023/BA/Grass%202.png
-  
+      src   = /media/conscious-living/2023/Bird%201_huafe38e0595067a51b6e434bc8394629f_15144_1280x1280_fit_q75_h2_box_3.webp
       size  = "md"
-
-      style = "
-         z-index : 200; 
-        
-        
-         bottom : 5em ; 
-         left : 2em ; 
-         opacity : 0.7 ; 
-      "
-
-         
-    ></shaped-media>  
-    <shaped-media 
-      class = "cover__graphic"
-      src   = /media/conscious-living/2023/BA/Tree%204.png
-  
-      size  = "md"
-
-      style = "
-         z-index : -500; 
-        
-        
-         bottom : 25% ; 
-         left : -10% ; 
-         opacity : 0.8 ; 
-      "
-
-      
-        data-scroll 
-        data-scroll-speed = "0.1" 
-         
-    ></shaped-media>  
-    <shaped-media 
-      class = "cover__graphic"
-      src   = /media/conscious-living/2023/BA/Tree%204.png
-  
-      size  = "sm"
-
-      style = "
-         z-index : -500; 
-        
-        
-        
-        
-         opacity : 0.8 ; 
-      "
-
-      
-        data-scroll 
-        data-scroll-speed = "-0.1" 
-         
-    ></shaped-media>  
-    <shaped-media 
-      class = "cover__graphic"
-      src   = /media/conscious-living/2023/BA/Tree%202.png
-  
-      size  = "xl"
-
-      style = "
-         z-index : -500; 
-        
-         right : -5% ; 
-        
-        
-         opacity : 0.7 ; 
-      "
-
-      
-        data-scroll 
-        data-scroll-speed = "0.1" 
-         
-    ></shaped-media>  
-    <shaped-media 
-      class = "cover__graphic"
-      src   = /media/conscious-living/2023/Bird%201.png
-  
-      size  = "md"
-
       style = "
          z-index : 200; 
         
@@ -626,15 +571,20 @@
         
         
       "
-
+      
+        data-scroll 
+        data-scroll-speed = "0.2" 
          
     ></shaped-media>  
-    <a id="cover-cta"
-    data-scroll 
-        data-scroll-speed = "-0.1" 
-        style = "background-image : url(/media/conscious-living/2023/Blobs/Blob%202.png);">
-      <div>Read the entire report</div>
-    </a>
+  
+  <a id="cover-cta"
+      target="_blank"
+      href="Understanding%20Conscious%20Living%20in%20India%20-%20Full%20copy%20draft.pdf">
+    <shaped-media src="/media/conscious-living/2023/CTA%20Click_hover%20state_huef1b90262efb91d5984d06a27a283ec1_228165_720x720_fit_q75_h2_box_3.webp"
+    size="xs"></shaped-media>
+    <div>Read the report</div>
+  </a>
+
 </callout-section>  
 
 
@@ -677,21 +627,19 @@
 
 
 
+
+  
   
 
 
 <tag-tag
-
-  id = Read&#32;the&#32;entire&#32;report
+   id = read-the-entire-report 
+  
   
    size = md 
   
-
-  
-  theme = invisible 
->
-  Read the entire report
-</tag-tag>
+   theme = invisible 
+>Read the entire report</tag-tag>
 
     
    
@@ -710,6 +658,8 @@
     align-items: center;
     justify-content: center;
     gap : var(--space-lg);
+
+    container: shifts-nav / inline-size;
   }
 
   #shifts>nav{
@@ -761,18 +711,21 @@
 
   #shifts-logo {
     position: absolute;
-
-
     width: var(--content-md);
-    max-width: 40%;
+    max-width: 30%;
     overflow: visible;
- 
     z-index : 500;
   }
   #shifts-logo::part(picture) {
     display: flex;
     align-items: center;
     justify-items: center;
+  }
+
+  @container shifts-nav ( max-width: 400px ) {
+    #shifts-logo {
+      max-width: 50%;
+    }
   }
 </style>
 
@@ -781,10 +734,6 @@
   id="shifts"
   class="page-module"
   size="breakout">
-
-
-  
-
 
   <nav >
 
@@ -810,11 +759,12 @@
 
   </nav>
 
-  <shaped-media 
+  
+    <shaped-media 
       id="shifts-logo"
-      src   = /media/conscious-living/2023/4%20Big%20Shifts.png
+      src   = /media/conscious-living/2023/4%20Big%20Shifts_hu6eca6e43298a4b0496fc768fc3d8a698_184292_1280x1280_fit_q75_h2_box_3.webp
       size  = "sm"
-      
+ 
     ></shaped-media>  
   
 
@@ -843,33 +793,58 @@
   #defining-consciousness__wrapper {
     display: flex;
     gap: var(--space-xl);
+    justify-content: space-evenly;
   }
   
-
-  header {
-
+  header .title {
     color: var(--secondary-color);
-    
+    font-family: var(--font-header);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
   }
 
   header .introduction {
     color: var(--contrast-color);
     font-size: var(--font-size-lg);
-    font-family: var(--font-family-display);
+    font-family: var(--font-display);
     line-height: 0.9;
     max-width:20ch;
+    margin-block-start: var(--space-md);
+
   }
+
   #defining-consciousness .body {
 
     max-width:30ch;
   }
-
 
   #conscious-head {
     z-index : -200;
     position: absolute;
     opacity: 0.7;
     bottom : 20px;
+}
+
+#defining-consciousness dl {
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(5px);
+  padding : var(--space-sm);
+  padding-block-end: 1em;
+  border-radius: 4px;
+
+  color: var(--cl24-indigo );
+}
+
+#defining-consciousness dl dt {
+  color: var(--cl24-indigo );
+  margin-block-start: 1em;
+  font-weight: bolder; 
+}
+
+#defining-consciousness dl dd {
+  margin: 0;
+  font-size: var(--font-size-sm);
+
 }
 
 @container defining-consciousness ( max-width: 400px ) {
@@ -896,24 +871,31 @@
   <div id="defining-consciousness__wrapper">
 
     <header>
-      Defining ‘Consciousness’
+      <div class="title">
+        Defining ‘Consciousness’
+      </div>
+
       <div class="introduction">
         Consciousness, at its simplest, is the awareness of internal and external existence.
       </div>
     </header>
 
     <div class="body"> <p>As we look at conscious living, we consider three states of awareness:</p>
-<p>Sensing the world</p>
-<p>The awareness and sensorial experience of the external world - organisms, objects, events, context, surroundings, and environment</p>
-<p>Sensing the body</p>
-<p>Conscious awareness of our body, its internal sensations, bodily functions, and physical states</p>
-<p>Sensing the mind</p>
-<p>Conscious awareness of our mind, its feelings, emotions, thoughts, memories, mental processes, and cognitive states</p>
+<dl>
+<dt>Sensing the world</dt>
+<dd>The awareness and sensorial experience of the external world - organisms, objects, events, context, surroundings, and environment</dd>
+<dt>Sensing the body</dt>
+<dd>Conscious awareness of our body, its internal sensations, bodily functions, and physical states</dd>
+<dt>Sensing the mind</dt>
+<dd>Conscious awareness of our mind, its feelings, emotions, thoughts, memories, mental processes, and cognitive states</dd>
+</dl>
  </div>
 
-  </div><shaped-media 
+  </div>
+
+  <shaped-media 
       id="conscious-head"
-      src   = /media/conscious-living/2023/SFA/Head.png
+      src   = /media/conscious-living/2023/SFA/Head_hu81c27cd6f9a82b40a0ee373a0ac12773_3877833_1280x1280_fit_q75_h2_box_3.webp
       size  = "md"
       data-scroll 
       data-scroll-speed = 0.05 
@@ -942,22 +924,22 @@
 
   <div  class="shift-section__content"
         data-scroll data-scroll-speed="-0.1">
-    <header class="shift-section__title"></header>
     <div class="shift-section__introduction"><h2 id="looking-back-to-move-forward">Looking Back to Move Forward</h2>
 <p>India&rsquo;s scientific capabilities, built through collaboration on a global stage, have empowered us to view our rich cultural knowledge and heritage through a new lens. This has resulted in a masterpiece-like convergence of the old and the new, the traditional and the modern.</div>
   </div>
 
   
 
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/LBTMF/mud%20house.png
+        src   = /media/conscious-living/2023/LBTMF/mud%20house_hu9d77d33cdf100e2b86ecb48e5d174d8c_339402_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
           
           
            right : 0 ; 
-           bottom : 10px ; 
+           bottom : 30% ; 
           
         "
 
@@ -965,9 +947,10 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/LBTMF/grass_1.png
+        src   = /media/conscious-living/2023/LBTMF/grass_1_hud13ae9d7252838591fa8ebc9ac7182a0_45126_1280x1280_fit_q75_h2_box_3.webp
         size  = "sm"
         style = "
            z-index : 200; 
@@ -981,9 +964,10 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/LBTMF/window.png
+        src   = /media/conscious-living/2023/LBTMF/window_hu04b47fbe9e44a2563a439e9e98ef138e_34988_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
            z-index : -200; 
@@ -995,7 +979,7 @@
 
         
           data-scroll 
-          data-scroll-speed = "0.5" 
+          data-scroll-speed = "0.2" 
         
         
       ></shaped-media>  
@@ -1018,21 +1002,21 @@
 
   <div  class="shift-section__content"
         data-scroll data-scroll-speed="-0.1">
-    <header class="shift-section__title"></header>
     <div class="shift-section__introduction"><h2 id="balancing-act-consumption--conservation">Balancing Act: Consumption &amp; Conservation</h2>
 <p>Consumers are looking to policy and private players to address their mounting consumption needs while at the same time managing and measuring environmental impact.</div>
   </div>
 
   
 
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/BA/Book.png
+        src   = /media/conscious-living/2023/BA/Book_hua2b185b1cb5f2324030e17086e788837_25113_1280x1280_fit_q75_h2_box_3.webp
         size  = "sm"
         style = "
           
           
-           right : 0 ; 
+           right : 5% ; 
            bottom : 10% ; 
           
         "
@@ -1041,13 +1025,14 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/BA/House.png
+        src   = /media/conscious-living/2023/BA/House_hu2f5ef4e4da3ba38bf811e372a28a0784_61912_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
            z-index : -100; 
-          
+           top : 10% ; 
            right : 10px ; 
           
           
@@ -1060,9 +1045,10 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/BA/Potted%20plant.png
+        src   = /media/conscious-living/2023/BA/Potted%20plant_hu762b2978f26dae63453c33ed5a1e62fd_88781_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
           
@@ -1094,32 +1080,33 @@
 
   <div  class="shift-section__content"
         data-scroll data-scroll-speed="-0.1">
-    <header class="shift-section__title"></header>
     <div class="shift-section__introduction"><h2 id="spaces-activated">Spaces Activated</h2>
 <p>This post-pandemic world has reshaped our expectations of where and how we are supposed to live, and live well. In this &ldquo;new normal,&rdquo; cities are becoming more socially oriented, with community spaces that prioritise social development, nation-building, leisure, entertainment, and spectacle.</div>
   </div>
 
   
 
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SA/building.png
+        src   = /media/conscious-living/2023/SA/building_hud2715acabde2a9281fdea6d17d803373_617760_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
+           z-index : -500; 
+           top : 10% ; 
           
           
-          
-          
-          
+           left : -5% ; 
         "
 
         
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SA/Grass.png
+        src   = /media/conscious-living/2023/SA/Grass_hu830a819b269bba357088720cacbed017_21731_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
           
@@ -1136,9 +1123,10 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SA/parkbench.png
+        src   = /media/conscious-living/2023/SA/parkbench_hu07876dd426d002b7c53f8fe2d9419d99_138073_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
            z-index : -200; 
@@ -1170,16 +1158,16 @@
 
   <div  class="shift-section__content"
         data-scroll data-scroll-speed="-0.1">
-    <header class="shift-section__title"></header>
     <div class="shift-section__introduction"><h2 id="search-for-authenticity">Search for Authenticity</h2>
 <p>This technology-driven, knowledge-production is pushing us to define the boundaries of &lsquo;self&rsquo; in relation to identity and how we present ourselves. What it has led to is a conception of new identities and aesthetics in this search for uniqueness.</div>
   </div>
 
   
 
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SFA/Phygital%20illustration.png
+        src   = /media/conscious-living/2023/SFA/Phygital%20illustration_hueaf9d12b7e1ddc49439fc65ebf32dc8b_489797_1280x1280_fit_q75_h2_box_3.webp
         size  = "md"
         style = "
            z-index : -200; 
@@ -1193,13 +1181,14 @@
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SFA/Hand%20phone.png
+        src   = /media/conscious-living/2023/SFA/Hand%20phone_hu0eb00e781ab4bf5df20f31e5ac5b54e5_1235860_1280x1280_fit_q75_h2_box_3.webp
         size  = "sm"
         style = "
           
-          
+           top : 10% ; 
            right : 10% ; 
           
           
@@ -1207,14 +1196,15 @@
 
         
           data-scroll 
-          data-scroll-speed = "0.3" 
+          data-scroll-speed = "0.2" 
         
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SFA/Pixels%201.png
+        src   = /media/conscious-living/2023/SFA/Pixels%201_huf8faeaa12427b66261301863d1c782e7_48825_1280x1280_fit_q75_h2_box_3.webp
         size  = "xs"
         style = "
           
@@ -1226,14 +1216,15 @@
 
         
           data-scroll 
-          data-scroll-speed = "1" 
+          data-scroll-speed = "0.5" 
         
         
       ></shaped-media>  
  
-  <shaped-media 
+  
+    <shaped-media 
         class = "shift-section__graphic --background"
-        src   = /media/conscious-living/2023/SFA/Pixels%202.png
+        src   = /media/conscious-living/2023/SFA/Pixels%202_huad836986ab310e6f1e2b67fe9e956a8e_56491_1280x1280_fit_q75_h2_box_3.webp
         size  = "xs"
         style = "
           
@@ -1262,11 +1253,6 @@
    theme = black 
 > 
 
-  
-    
-      <h2 slot="title">Credits</h2>
-    
-    
   
 
   
@@ -1386,8 +1372,8 @@
    
     <shaped-media 
       slot="media"
-      src = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_1280x720_fit_q75_bgffffff_box_3.jpg
-       placeholder = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_635e7dc2bd1617f9f2e2891ac8a0829d.jpg 
+      src = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_1280x720_fit_q75_h2_box_3.webp
+       placeholder = /media/logos/Screenshot%202023-11-29%20at%2014.24.35_hu1c76364e92aedd6b09364bda18c29e49_62435_a3fdc7480578657d5757b38a8613f821.jpg 
       loading = "lazy"
        layout = row-reverse 
        shape = square 
@@ -1460,8 +1446,8 @@
    
     <shaped-media 
       slot="media"
-      src = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_1280x720_fit_q75_box.jpg
-       placeholder = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_16786e2e5f67ad50626c87edc33b1f4d.jpg 
+      src = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_1280x720_fit_q75_h2_box.webp
+       placeholder = /media/headshots/Sneha%20Ullal%20Goel%20Profile%20pic%202_hub96333c130b623289d8775c1ba1375ab_3852974_7b495ab175b246a596cbfa23f739df4a.webp 
       loading = "lazy"
        layout = row-reverse 
        shape = square 
@@ -1500,7 +1486,7 @@
 >
 
   
-    <div slot="title">Studio How About That</div>
+    <div slot="title">Studio How About That!</div>
   
   
     <div slot="subtitle"><p>How About That! is an independent multidisciplinary creative and digital studio.</p>
@@ -1524,8 +1510,8 @@
    
     <shaped-media 
       slot="media"
-      src = /media/logos/HAT%20%20white-02_hu099504aed4f7e73892429af5a1d4f666_469241_1280x720_fit_q75_bgffffff_box_3.jpg
-       placeholder = /media/logos/HAT%20%20white-02_hu099504aed4f7e73892429af5a1d4f666_469241_7cedc2673a1048ac80078c9d7e416701.jpg 
+      src = /media/logos/HAT%20%20white-02_hued5efb2b573e3f129b9eb192dd710bc6_307489_1280x720_fit_q75_h2_box_3.webp
+       placeholder = /media/logos/HAT%20%20white-02_hued5efb2b573e3f129b9eb192dd710bc6_307489_8d7e082c2ca220b8f9ec4e90465ad793.jpg 
       loading = "lazy"
        layout = row-reverse 
        shape = square 
@@ -1658,21 +1644,19 @@
 
 
 
+
+  
   
 
 
 <tag-tag
-
-  id = Read&#32;the&#32;entire&#32;report
+   id = read-the-entire-report 
+  
   
    size = md 
   
-
-  
-  theme = invisible 
->
-  Read the entire report
-</tag-tag>
+   theme = invisible 
+>Read the entire report</tag-tag>
 
     
   
@@ -1861,7 +1845,7 @@
 
   
   let ps = document.querySelector('#footer-ps');
-  const ver = "1.3.0"
+  const ver = "1.3.3"
   const YYY_MM_DDTHH_MM_SS_HH_MM = "2023-12-06T19:58:49+05:30"
 
   const boldStyle = 'font-weight:bold'
